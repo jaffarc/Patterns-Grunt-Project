@@ -1,0 +1,10 @@
+.DS_Store
+.Thumbs
+node_modules
+web.config
+output
+Documentacao
+.sass-cache
+info-project
+coverage
+output

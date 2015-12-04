@@ -1,0 +1,47 @@
+[
+    [
+        "site",
+        {
+            "module":{
+            	"Teste": true
+            },
+            "styles": {
+	        	"sass" : {
+	        		"reset":true,
+	        		"menu" :true
+	        	},
+	        	"css": {
+	        		"reset" :  true,
+	        		"menu":true,
+	        		"contato":true
+	        	}
+
+		    },
+		    "default":{
+		    	"debug":false,
+		    	"build"  : "./public/www/"
+		    }
+
+        }
+    ],
+    [
+        "Painel",
+   		{
+            "module":{
+            	"Teste": true
+            },
+            "styles": {
+	        	"sass" : {
+	        		"reset":true,
+	        		"menu" :true
+	        	}
+
+		    },
+		    "default":{
+			    "debug":true,
+			    "build" : "./public/Painel/"
+			}
+        }
+    ]
+]
+

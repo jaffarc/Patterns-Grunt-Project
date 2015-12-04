@@ -1,0 +1,30 @@
+{
+   "camelcase": false,
+   "indent": 4,
+   "white": true,
+   "curly": true,
+   "eqeqeq": false,
+   "unused":false,
+   "asi":false,
+   "immed": true,
+   "latedef": true,
+   "newcap": true,
+   "noarg": false,
+   "sub": false,
+   "undef": false,
+   "boss": true,
+   "nomen": false,
+   "eqnull": true,
+   "browser": true,
+   "strict":false,
+   "globals": {
+     "APP": true,
+     "test": true,
+     "equal": true,
+     "$": true,
+     "require": true,
+     "Ember": true,
+     "console":true,
+     "jQuery":true
+   }
+}
