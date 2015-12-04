@@ -7,12 +7,12 @@
   },
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "jaffar cardoso",
+    "email": "eu@jaffar.com.br"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:jaffarc/Patterns-Grunt-Project.git"
   },
   "main": "Gruntfile.js",
   "engines": {

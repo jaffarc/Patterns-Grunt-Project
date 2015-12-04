@@ -1,4 +1,4 @@
-Olha a Todos! Bem-Vindo!
+Bem-Vindo!
 
 Essa strutura foi criada para js-modular  senguindo alguns padrões de pattern.
 	Referências/livros:  Padrões-Javascript, javaScript-Guia-Definitivo, JavaScript-de-alto-desenpenho.    
