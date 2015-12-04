@@ -1,7 +1,7 @@
 Olha a Todos! Bem-Vindo!
 
-	Essa strutura foi criada para js-modular  senguindo alguns padrões de pattern.
-		Referências/livros:  Padrões-Javascript, javaScript-Guia-Definitivo, JavaScript-de-alto-desenpenho.    
+Essa strutura foi criada para js-modular  senguindo alguns padrões de pattern.
+	Referências/livros:  Padrões-Javascript, javaScript-Guia-Definitivo, JavaScript-de-alto-desenpenho.    
 
 Problema:
 	Nós ultimos anos trabalhando em algumas agencias, percebi a dificuldade de ter varios projetos do mesmo cliente. 
