@@ -134,8 +134,7 @@ Para inicializar um novo projeto você deve seguir os passoas abaixo.
 1) Open o project via terminal de um clone desse projeto.
 
 2) Instale as dependencias lembrando que estão todas instaladas.
-	
-	se a dependencia preciar ser atribuida para todos, instale como Ex: npm install pacote --save-dev.
+se a dependencia preciar ser atribuida para todos, instale como Ex: npm install pacote --save-dev.
 
 3) Depois de instalado tudo as dependencias, via terminal execute grunt help, Isso vai mostras as desk ja configurada e como  executar.
 
