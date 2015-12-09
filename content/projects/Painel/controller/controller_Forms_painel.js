@@ -1,7 +1,6 @@
 /* jshint undef: true, unused: true */
 /* globals APP */
 
-
 /**
  * [description]
  * @param  {[type]} 
@@ -13,11 +12,12 @@ APP.namespace(['Forms'], function (app) {
         return false
     }
 	*/
+	console.log(app)
+	
 	var template = APP.tpl.create(document.getElementById('target'));
 	template.scope.name = "jaffar cardoso";
 	template.scope.age = app.age();
 
-	console.log(app)
 
 	template.scope.greet = "Hello";
 	template.scope.items = [
@@ -25,9 +25,6 @@ APP.namespace(['Forms'], function (app) {
 		{ "name": "front-end" },
 		{ "name": "developer" }
 	];
-
-
-    
    
 
 

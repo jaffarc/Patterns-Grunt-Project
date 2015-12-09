@@ -164,7 +164,7 @@
             }
         };
         /**
-         * [extend description]
+         * @description extend method public all modules 
          * 
          */
         Public.extend = Private.extend;
