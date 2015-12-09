@@ -4,8 +4,8 @@ This structure was created for js-modular according to some standards of pattern
 
 ##References:  
 	Book: JavaScript Patterns. 
-	Book: javascript the definitive guide. 
-	Book: 6h edition, High Performance JavaScript.    
+	Book: javascript the definitive guide, 6h edition. 
+	Book: High Performance JavaScript.    
 
 ##Problem:
 We last years working in some companies, realizes the difficulty of having several projects from the same client. Especially when the project has the following structure:

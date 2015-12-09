@@ -8,3 +8,5 @@ Documentacao
 info-project
 coverage
 output
+public/app.js
+public/package.json
