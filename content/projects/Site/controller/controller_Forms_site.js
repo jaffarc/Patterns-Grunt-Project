@@ -11,12 +11,8 @@ APP.namespace(['Forms'], function (test) {
     
     console.log(test)
 
-    $("#resultado").html(test.return100());
+    
 
-
-  	(function teste(){
-  		console.log("fdsafsafsa");
-  	}())
 
 
 })
