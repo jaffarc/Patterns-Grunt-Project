@@ -38,7 +38,7 @@
 
 		    },
 		    "default":{
-			    "debug":true,
+			    "debug":false,
 			    "build" : "./public/Painel/"
 			}
         }

@@ -1,11 +1,14 @@
-Bem-Vindo!
+Welcome!
 
-Essa strutura foi criada para js-modular  senguindo alguns padrões de pattern.
-	Referências/livros:  Padrões-Javascript, javaScript-Guia-Definitivo, JavaScript-de-alto-desempenho.    
+This structure was created for js-modular according to some standards of pattern.
 
-Problema:
-	Nós ultimos anos trabalhando em algumas agencias, percebi a dificuldade de ter varios projetos do mesmo cliente. 
-	Principalmente quando o projeto tem a seguinte estrutura:
+##References:  
+	Book: JavaScript Patterns. 
+	Book: javascript the definitive guide. 
+	Book: 6h edition, High Performance JavaScript.    
+
+##Problem:
+We last years working in some companies, realizes the difficulty of having several projects from the same client. Especially when the project has the following structure:
 
 	public
 		|_site 
@@ -22,13 +25,14 @@ Problema:
 			|js/
 			|-index.html
 
-Percebi que ao longo do projeto o gruntfile ficava totalmente ruim de entender ou com varios gruntfile para cada projeto.
-Minha ideia foi criar um grunt aonde não importa o que projeto esteja trabalhando tem que usar apenas um gruntfile.
-Solução:
+I realized that over the project gruntfile was totally bad to understand or with various gruntfile for each project.
+My idea was to create a grunt where no matter what project you are working have to use only one gruntfile.
 
-	Essa estrutura/pattern  
+##Solution:
 
-		Cliente
+	This structure / pattern  
+
+		Client
 			|__content
 			|	|core
 			|	|	|0.jquery.js
@@ -123,32 +127,103 @@ Solução:
 
 
 
-		
+##Config
+	[
+	    [
+	        "site",
+	        {
+	            "module":{
+	            	"Teste": true
+	            },
+	            "styles": {
+		        	"sass" : {
+		        		"reset":true,
+		        		"menu" :true
+		        	},
+		        	"css": {
+		        		"reset" :  true,
+		        		"menu":true,
+		        		"contato":true
+		        	}
+
+			    },
+			    "default":{
+			    	"debug":false,
+			    	"build"  : "./public/www/"
+			    }
+
+	        }
+	    ],
+	  	[
+	        "Painel",
+	   		{
+	            "module":{
+	            	"Teste": true
+	            },
+	            "styles": {
+		        	"sass" : {
+		        		"reset":true,
+		        		"menu" :true
+		        	}
+
+			    },
+			    "default":{
+				    "debug":false,
+				    "build" : "./public/Painel/"
+				}
+	        }
+	    ]
+	]		
 
 
 
 
+*To start a new project you must follow the steps below.
 
-Para inicializar um novo projeto você deve seguir os passoas abaixo.
+## Dependencies
+*if you don't have it yet.
 
-1) Open o project via terminal de um clone desse projeto.
+1. Install [Git](http://git-scm.com/download/)
+2. Install [NodeJS](http://nodejs.org/download/)
 
-2) Instale as dependencias lembrando que estão todas instaladas.
-se a dependencia preciar ser atribuida para todos, instale como Ex: npm install pacote --save-dev.
+## Setup
+1. Open your terminal and clone the project.
+	
+	```
+	$ git clone https://github.com/jaffarc/Patterns-Grunt-Project
+	```
 
-3) Depois de instalado tudo as dependencias, via terminal execute grunt help, Isso vai mostras as desk ja configurada e como  executar.
+2. Then go to the project's folder.
+	```
+	cd Patterns-Grunt-Project
+	```
+
+3.  Install local dependencies, If you are a problem, installing the dependence manually remembering that some have to be the version that is in package.json.
+
+	```
+	npm install   ||  npm install <name>@<version>
+	```
 
 
-4) Todo os modulos devem ter os teste em spec. A ordem de compress os modulos são na ordem que colocar no config.json
-o mesmo vale para o css ou sass. 
+## Usage
+
+Once installed all the dependencies, run via terminal:
+	```
+ 	grunt help
+	``` 
+	It will shows the desk already configured and running.
+
+All the modules should have the test spec. 
+
+The compress order the modules are in order to put in config.json
+the same goes for the css or sass.
 
 
-E isso é tudo que existe! Apenas divirta-se. Vá em frente e editar o código,
-ou adicionar novos arquivos. Isso foi um estudo!
+Just have fun. Go ahead and edit the code or add new files. This was a study!
 
 
-
-FAQ:  Não utilizo UglifyJS pelos motivo descrito pelo criador do grunt-yui-compressor:
+##FAQ: 
+I do not use UglifyJS the reason described by creator grunt-yui-compressor:
 
 Grunt’s built-in min task relies on UglifyJS. I love UglifyJS, but it has a few annoying issues and shortcomings:
 
