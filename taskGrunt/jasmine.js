@@ -25,7 +25,7 @@ module.exports =  {
                 ]
             },
             vendor: [
-                './content/core/0.jquery-1.11.3-min.js',
+                './content/core/0.soma-template-v0.3.2.js',
                 './content/core/1.core.js'
             ]
         }

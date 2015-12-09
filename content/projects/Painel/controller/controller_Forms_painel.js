@@ -13,14 +13,11 @@ APP.namespace(['Forms'], function (app) {
         return false
     }
 	*/
-    var settings = soma.template.settings;
-    settings.tokens.start("[[");
-    settings.tokens.end("]]");
-
-	var template = soma.template.create(document.getElementById('target'));
+	var template = APP.tpl.create(document.getElementById('target'));
 	template.scope.name = "jaffar cardoso";
 	template.scope.age = app.age();
-   
+
+	console.log(app)
 
 	template.scope.greet = "Hello";
 	template.scope.items = [
@@ -36,9 +33,6 @@ APP.namespace(['Forms'], function (app) {
 
     template.render();
 
-
  
 
-	return this;
-  
 });

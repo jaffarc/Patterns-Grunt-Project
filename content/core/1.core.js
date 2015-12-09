@@ -16,7 +16,7 @@
 
 (function (window) {
     var APP = window.APP === window.APP || {};
-    APP = (function (mod) {
+    APP = (function (mod, template) {
         /**
         * Reference to the internal Private
         * instance used to make the queries.
@@ -30,6 +30,7 @@
         *}
         */
         var  Private = {
+            tplsettings : template.settings
         },
         options = {
             debug: true,
@@ -168,9 +169,21 @@
          */
         Public.extend = Private.extend;
 
+        /**
+         * config addDelimiters template soma
+         * 
+         */
+       
+        Private.tplsettings.tokens.start("[[");
+        Private.tplsettings.tokens.end("]]");
+        
+
+        Public.tpl = template;
+
+
         return Public;
 
-    })(window.APP);
+    })(window.APP, soma.template);
     window.APP = APP;
     APP.modules = {};
 })(window);
