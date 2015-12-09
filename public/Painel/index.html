@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang='pt-br'>
 <head>
-    <title>Relatorio</title>
+    <title>Painel</title>
 
-    <!-- Meta -->
     <meta charset="utf-8"/>
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,34 +10,20 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Desenvolvedor Web" />
-    <link href='https://www.google.com/fonts#ReviewPlace:refine/Collection:Source+Sans+Pro|Noto+Sans|Montserrat:700' rel='stylesheet' type='text/css'>
     <link href="css/general-min-un.css" rel="stylesheet" />
 
-<body id="home">
-<select name="" id="SelectCat"></select>
-<table cellpadding="0" cellspacing="0" id="metaTabela" class="tableSorter">
-    <thead>
-       <tr>
-         <th>Código</th>
-         <th>Descrição</th>
-         <th>Estoque Atual</th>
-         <th>Giro Diário</th>
-         <th>Giro Mensal</th>
-         <th>Dias de Venda</th>
+<body>
 
-       </tr>
-    </thead>
-    <tbody>
-         <td>1999</td>
-         <td>Cobreleito/Colcha Kids Ballon c/ Bolsa</td>
-         <td>460</td>
-         <td>2</td>
-         <td>51</td>
-         <td>230</td>
+<div id="target">
+	<p>My name is [[name]] and my age is [[age]]</p>
 
-   </tr>
-  </tbody>
- </table>
+  	<div data-repeat="item in items">
+    	<div>[[$index]] - [[greet]] [[item.name]]!</div>
+  	</div>
+
+
+
+</div>
 
 <script src="/js/general-min-un.js"></script>
 </body>

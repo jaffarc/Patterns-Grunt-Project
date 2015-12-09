@@ -3,7 +3,7 @@
         "site",
         {
             "module":{
-            	"Teste": true
+            	"Forms": true
             },
             "styles": {
 	        	"sass" : {
@@ -28,7 +28,7 @@
         "Painel",
    		{
             "module":{
-            	"Teste": true
+            	"Forms": true
             },
             "styles": {
 	        	"sass" : {

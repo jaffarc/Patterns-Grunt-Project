@@ -1,7 +1,7 @@
-describe("MODULE_Teste", function() {
+describe("MODULE_Forms", function() {
 
     it('Execute', function() {    
-	    expect(APP.modules.Forms().return100()).toBe(100);
+	    expect(APP.modules.Forms().age()).toBe(34);
     });
 
     

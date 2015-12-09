@@ -4,8 +4,8 @@ APP.modules.Forms = function (module) {
     var module = this;
     /* end-test-block */
 
-    module.return100 = function() {
-        return 100;
+    module.age = function() {
+        return 34;
     };
 
 
@@ -17,7 +17,7 @@ APP.modules.Forms = function (module) {
 
     /* start-test-block */
     return {
-        return100: module.return100,
+        age: module.age,
         Email_valid: module.Email_valid
        
     };
