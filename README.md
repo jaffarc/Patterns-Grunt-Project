@@ -35,7 +35,7 @@ My idea was to create a grunt where no matter what project you are working have 
 		Client
 			|__content
 			|	|core
-			|	|	|0.jquery.js
+			|	|	|0.soma-template-v0.3.2
 			|	|	|1.core.js
 			|	|modules
 			|	|	|MODULE_Forms.js
