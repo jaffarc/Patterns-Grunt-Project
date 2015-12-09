@@ -133,7 +133,7 @@ My idea was to create a grunt where no matter what project you are working have 
 	        "site",
 	        {
 	            "module":{
-	            	"Teste": true
+	            	"Forms": true
 	            },
 	            "styles": {
 		        	"sass" : {
@@ -158,7 +158,7 @@ My idea was to create a grunt where no matter what project you are working have 
 	        "Painel",
 	   		{
 	            "module":{
-	            	"Teste": true
+	            	"Forms": true
 	            },
 	            "styles": {
 		        	"sass" : {
