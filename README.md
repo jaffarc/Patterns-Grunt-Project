@@ -38,12 +38,12 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|0.jquery.js
 			|	|	|1.core.js
 			|	|modules
-			|	|	|MODULE_Teste.js
+			|	|	|MODULE_Forms.js
 			|	|
 			|	|projects
 			|	|	|site
 			|	|	|	|controller
-			|	|	|	|	|controller_teste.js
+			|	|	|	|	|controller_Forms_site.js
 			|	|	|	|	
 			|	|	|	|styles
 			|	|	|		|css
@@ -56,7 +56,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|			|reset.css
 			|	|	|painel
 			|	|		|controller
-			|	|		|	|controller_teste.js
+			|	|		|	|controller_Forms_painel.js
 			|	|		|	
 			|	|		|styles
 			|	|			|css
@@ -70,7 +70,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|
 			|	|
 			|	|spec
-			|	|	|MODULE_TesteSpec.js
+			|	|	|MODULE_FormsSpec.js
 			|	|
 			|	|_config.json
 			|	
