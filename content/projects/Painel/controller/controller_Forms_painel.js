@@ -6,7 +6,7 @@
  * @param  {[type]} 
  * @return {[type]} [description]
  */
-APP.namespace(['Forms'], function (app) {
+APP.namespace(['*'], function (app) {
 
     /*if(!APP.startView('[data-a="1"]')){
         return false

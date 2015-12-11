@@ -1,6 +1,6 @@
 {
   "name": "Patterns-Grunt-Project",
-  "description": "Precomplie with grunt  and js modular",
+  "description": "Precomplie with grunt  and js modules",
   "version": "0.0.2",
   "script": {
     "": ""

@@ -1,6 +1,6 @@
 Welcome!
 
-This structure was created for js-modular according to some standards of pattern.
+This structure was created for js-modules according to some standards of pattern.
 
 ##References:  
 	Book: JavaScript Patterns. 

@@ -99,23 +99,32 @@
         Public.namespace = function () {
             try{
 
-                var args     = Array.prototype.slice.call(arguments),
+                var args = Array.prototype.slice.call(arguments),
                     callback = args.pop(),
-                    requiredmodules  = (args[0] && typeof args[0] ==="string") ? args : args[0],
+                    requiredmodules = (args[0] && typeof args[0] === "string") ? args : args[0],
                     i;
-                Private.checkModule(requiredmodules);
 
-                if(!(this instanceof Public.namespace)){
+                if (!(this instanceof Public.namespace)) {
                     return new Public.namespace(requiredmodules, callback);
                 }
 
-                for(i = 0; i< requiredmodules.length; i +=1){
+                if (!requiredmodules || requiredmodules == '*') {
+                    requiredmodules = [];
+                    for (i in APP.modules) {
+                        if (APP.modules.hasOwnProperty(i)) {
+                            requiredmodules.push(i);
+                        }
+                    }
+                }
+                Private.checkModule(requiredmodules);
+
+                for (i = 0; i < requiredmodules.length; i += 1) {
                     APP.modules[requiredmodules[i]](this);
                 }
 
                callback(this);
             }catch(err) {
-                console.error("Public.namespace", err.message);
+                console.error("Public.namespace", "Invalid name "+ arguments[0]);
             }
 
         };
