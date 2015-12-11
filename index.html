@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Patterns-grunt-project by jaffarc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Patterns-grunt-project</h1>
+      <h2 class="project-tagline">multiple projects with grunt js, and js modular </h2>
+      <a href="https://github.com/jaffarc/Patterns-Grunt-Project" class="btn">View on GitHub</a>
+      <a href="https://github.com/jaffarc/Patterns-Grunt-Project/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jaffarc/Patterns-Grunt-Project/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p>Welcome!</p>
+
+<p>This structure was created for js-modular according to some standards of pattern.</p>
+
+<h2>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span class="octicon octicon-link"></span></a>References:</h2>
+
+<pre><code>Book: JavaScript Patterns. 
+Book: javascript the definitive guide, 6h edition. 
+Book: High Performance JavaScript.    
+</code></pre>
+
+<h2>
+<a id="problem" class="anchor" href="#problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem:</h2>
+
+<p>We last years working in some companies, realizes the difficulty of having several projects from the same client. Especially when the project has the following structure:</p>
+
+<pre><code>public
+    |_site 
+    |   |css/
+    |   |js/
+    |   |-index.html
+    |_landpage
+    |   |css/
+    |   |js/
+    |   |-index.html
+    |
+    |_Painel
+        |css/
+        |js/
+        |-index.html
+</code></pre>
+
+<p>I realized that over the project gruntfile was totally bad to understand or with various gruntfile for each project.
+My idea was to create a grunt where no matter what project you are working have to use only one gruntfile.</p>
+
+<h2>
+<a id="solution" class="anchor" href="#solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution:</h2>
+
+<pre><code>This structure / pattern  
+
+    Client
+        |__content
+        |   |core
+        |   |   |0.soma-template-v0.3.2
+        |   |   |1.core.js
+        |   |modules
+        |   |   |MODULE_Forms.js
+        |   |
+        |   |projects
+        |   |   |site
+        |   |   |   |controller
+        |   |   |   |   |controller_Forms_site.js
+        |   |   |   |   
+        |   |   |   |styles
+        |   |   |       |css
+        |   |   |       |   |reset.css
+        |   |   |       |sass
+        |   |   |           |
+        |   |   |           |scss
+        |   |   |           |   |reset.scss
+        |   |   |           |
+        |   |   |           |reset.css
+        |   |   |painel
+        |   |       |controller
+        |   |       |   |controller_Forms_painel.js
+        |   |       |   
+        |   |       |styles
+        |   |           |css
+        |   |           |   |reset.css
+        |   |           |sass
+        |   |               |
+        |   |               |scss
+        |   |               |   |reset.scss
+        |   |               |
+        |   |               |reset.css
+        |   |
+        |   |
+        |   |spec
+        |   |   |MODULE_FormsSpec.js
+        |   |
+        |   |_config.json
+        |   
+        |   
+        |___|tasks
+        |   |   |lib
+        |   |   |   |yui-compressor.js
+        |   |   |   
+        |   |   |plato.js
+        |   |   |template_html.js
+        |   |   |yui-compressor.js
+        |   |
+        |   |
+        |__templates
+        |   |
+        |   |site
+        |   |   |data
+        |   |   |   |data.json
+        |   |   |modules
+        |   |   |   |headerTop.hbs
+        |   |   |   |footer.hbs 
+        |   |   |   |**.hbs
+        |   |   |   
+        |   |   |index.hbs
+        |   |   
+        |   |landpage   
+        |   |   |data
+        |   |   |   |data.json
+        |   |   |modules
+        |   |   |   |headerTop.hbs
+        |   |   |   |footer.hbs 
+        |   |   |   |**.hbs
+        |   |   |   
+        |   |   |index.hbs
+        |
+        |__public
+        |   |site
+        |   |   |css/general-min-un.css
+        |   |   |js/general-min-un.js   
+        |   |   |img/**.[png,jpg,gif]
+        |   |   |-index.html
+        |   |
+        |   |painel
+        |   |   |css/general-min-un.css
+        |   |   |js/general-min-un.js   
+        |   |   |img/**.[png,jpg,gif]
+        |   |   |-index.html
+        |
+        |.gitignore
+        |.jshintrc
+        |Gruntfile.js
+        |package.json
+        |README.md
+</code></pre>
+
+<h2>
+<a id="config" class="anchor" href="#config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config</h2>
+
+<pre><code>[
+    [
+        "site",
+        {
+            "module":{
+                "Forms": true
+            },
+            "styles": {
+                "sass" : {
+                    "reset":true,
+                    "menu" :true
+                },
+                "css": {
+                    "reset" :  true,
+                    "menu":true,
+                    "contato":true
+                }
+
+            },
+            "default":{
+                "debug":false,
+                "build"  : "./public/www/"
+            }
+
+        }
+    ],
+    [
+        "Painel",
+        {
+            "module":{
+                "Forms": true
+            },
+            "styles": {
+                "sass" : {
+                    "reset":true,
+                    "menu" :true
+                }
+
+            },
+            "default":{
+                "debug":false,
+                "build" : "./public/Painel/"
+            }
+        }
+    ]
+]       
+</code></pre>
+
+<p>*To start a new project you must follow the steps below.</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>*if you don't have it yet.</p>
+
+<ol>
+<li>Install <a href="http://git-scm.com/download/">Git</a>
+</li>
+<li>Install <a href="http://nodejs.org/download/">NodeJS</a>
+</li>
+</ol>
+
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<ol>
+<li>
+<p>Open your terminal and clone the project.</p>
+
+<pre><code>$ git clone https://github.com/jaffarc/Patterns-Grunt-Project
+</code></pre>
+</li>
+<li>
+<p>Then go to the project's folder.</p>
+
+<pre><code>cd Patterns-Grunt-Project
+</code></pre>
+</li>
+<li>
+<p>Install local dependencies, If you are a problem, installing the dependence manually remembering that some have to be the version that is in package.json.</p>
+
+<pre><code>npm install   ||  npm install &lt;name&gt;@&lt;version&gt;
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Once installed all the dependencies, run via terminal:
+    <code>
+    grunt help
+</code> 
+    It will shows the desk already configured and running.</p>
+
+<p>All the modules should have the test spec. </p>
+
+<p>The compress order the modules are in order to put in config.json
+the same goes for the css or sass.</p>
+
+<p>Just have fun. Go ahead and edit the code or add new files. This was a study!</p>
+
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ:</h2>
+
+<p>I do not use UglifyJS the reason described by creator grunt-yui-compressor:</p>
+
+<p>Grunt’s built-in min task relies on UglifyJS. I love UglifyJS, but it has a few annoying issues and shortcomings:</p>
+
+<p>It strips license comments of the form /*! foo */, only preserving the first comment in the concatenated file. This may cause you to violate licenses of open-source libraries that you’re using in your projects.
+It doesn’t escape non-printable ASCII characters in the output, potentially leading to hard-to-debug issues. Try minifying '\x0b', for example.
+There’s no way to make UglifyJS not munge a variable name.
+YUI Compressor doesn’t have these issues.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jaffarc/Patterns-Grunt-Project">Patterns-grunt-project</a> is maintained by <a href="https://github.com/jaffarc">jaffarc</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-71316208-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
