@@ -18,6 +18,7 @@ APP.namespace(['Forms'], function (app) {
 	template.scope.name = "jaffar cardoso";
 	template.scope.age = app.age();
 
+	template.scope.link = "www.jaffar.com.br";
 
 	template.scope.greet = "Hello";
 	template.scope.items = [

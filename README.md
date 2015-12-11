@@ -232,3 +232,6 @@ It doesn’t escape non-printable ASCII characters in the output, potentially le
 There’s no way to make UglifyJS not munge a variable name.
 YUI Compressor doesn’t have these issues.
 
+## License
+
+[MIT License] © Jaffar Cardoso

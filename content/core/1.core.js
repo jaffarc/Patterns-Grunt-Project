@@ -1,17 +1,17 @@
 /*jshint indent: 4, maxlen: 250, maxerr: 10, white: true, browser: true, devel: true, nomen: true, undef: true, unused: false, strict:false */
 /*global APP */
 /*!
- * APP JavaScript v1.0.3
+ * APP JavaScript v0.0.2
  *
  * Copyright 2015 Foundation, Inc. and other contributors
  *
- * Date: 2015-11-25
+ * Date: Fri 12/11/2015
  */
 /**
  * this is Main Application
  * @namespace APP
  * @class
- * @version 1.0
+ * @version 0.0.2
  */
 
 (function (window) {
@@ -34,14 +34,12 @@
         },
         options = {
             debug: true,
-            VERSION  : '1.0.0'
+            VERSION  : '0.0.2'
         };
         /**
         * Propriedade Publica
         * DEBUG_MODE {boolean} 
         * ser alterardo para ativar o modo DEBUG_MODE no console
-        *
-        * 
         */
         Private.extend = function(defaults, options) {
             var extended = {};
@@ -67,7 +65,7 @@
          */
         APP.prototype = {
             name: "APP",
-            version: "1.0",
+            version: "0.0.2",
             getName: function() {
                 return this.name;
             }
@@ -147,7 +145,11 @@
                 }
             }
         }());
-
+        /**
+         * [checkModule description]
+         * @param  {Array} arrDependency array with dependency
+         * @return {Array}  
+         */
         Private.checkModule = function (arrDependency) {
             var parts = [],
                 parent = APP.modules;

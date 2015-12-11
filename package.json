@@ -1,11 +1,11 @@
 {
   "name": "Patterns-Grunt-Project",
-  "description": "Precomplie with grunt",
-  "version": "0.0.1",
+  "description": "Precomplie with grunt  and js modular",
+  "version": "0.0.2",
   "script": {
     "": ""
   },
-  "homepage": "",
+  "homepage": "www.jaffar.com.br",
   "author": {
     "name": "jaffar cardoso",
     "email": "eu@jaffar.com.br"
@@ -15,6 +15,12 @@
     "url": "git@github.com:jaffarc/Patterns-Grunt-Project.git"
   },
   "main": "Gruntfile.js",
+  "keywords": [
+    "Gruntfile",
+    "jasmine",
+    "Patterns",
+    "modular"
+  ],
   "engines": {
     "node": "*"
   },
