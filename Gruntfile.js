@@ -46,6 +46,7 @@ module.exports = function (grunt) {
         concurrent      : require('./taskGrunt/concurrent.js'),
         strip_code      : require('./taskGrunt/strip_code.js'),
         jasmine         : require('./taskGrunt/jasmine.js'), 
+        uglify          : require('./taskGrunt/uglify.js')   
 
     });
 
@@ -120,8 +121,8 @@ module.exports = function (grunt) {
     function checkStyles(project,styles){
         var foldercss = styles,
             listCss = [],
-            index =0,
-            project = "Painel";
+            index =0;
+           //project = "Painel";
 
         fs.readdirSync(caminho).forEach(function(file) {
             var obj, total, result,
@@ -198,13 +199,18 @@ module.exports = function (grunt) {
      *
      */
     grunt.task.registerTask('css', 'Read a file asynchronously and write its contents out', function(project,styles) {
+        
+        if(styles==="sass"){
+            taskRun("sass:dist:"+project);
+        };
+
         var array = checkStyles(project,styles),
         total = array.length,
         cout =0, key, start;
-        console.log(array)
+        console.log(project,styles,checkStyles(project,styles))
         for(key in array){
             var done = this.async();
-            console.log('./content/projects/'+project+'/styles/'+styles+'/'+array[key].replace(/\d+/g, ''))
+           
             fsx.copy('./content/projects/'+project+'/styles/'+styles+'/'+array[key].replace(/\d+/g, ''), './release/'+array[key], function (err) {
                 if (!err){
                     cout++
@@ -305,12 +311,13 @@ module.exports = function (grunt) {
         var project  = /([!:+](\w+))/.exec(process.argv.slice(2))[2]
         extend(defaults, {
             dest: './temp/general-min-un.js',
-            build: readConfig('build', project)+'/js/general-min-un.js'
+            build: readConfig('build', project)+'js/'
         });
 
         taskRun('jshint');
         taskRun('debug:'+project+':'+defaults.dest)
-        taskRun('min:dist:'+defaults.dest+':'+defaults.build);
+        //taskRun('min:dist:'+defaults.dest+':'+defaults.build);
+        taskRun('uglify:all:'+defaults.build);
         taskRun('remove:temp:./temp');
 
     });

@@ -1,11 +1,11 @@
 /*jshint indent: 4, maxlen: 250, maxerr: 10, white: true, browser: true, devel: true, nomen: true, undef: true, unused: false, strict:false */
-/*global APP */
+/*!global APP */
 /*!
  * APP JavaScript v0.0.2
  *
  * Copyright 2015 Foundation, Inc. and other contributors
  *
- * Date: Fri 12/11/2015
+ * Date: Fri 12/22/2015
  */
 /**
  * this is Main Application
@@ -116,6 +116,7 @@
                         }
                     }
                 }
+                
                 Private.checkModule(requiredmodules);
 
                 for (i = 0; i < requiredmodules.length; i += 1) {
@@ -140,6 +141,39 @@
 
         };
 
+        /**
+         * [createElement description]
+         * @param  {[type]} element   [description]
+         * @param  {[type]} attribute [description]
+         * @param  {[type]} inner     [description]
+         * @return {[type]}           [description]
+         */
+        Public.createElement = function(element,attribute,inner){
+
+            if(typeof(element) === "undefined"){
+                return false;
+            }
+            if(typeof(inner) === "undefined"){
+                inner = "";
+            }
+            var el = document.createElement(element);
+            if(typeof(attribute) === 'object'){
+                for(var key in attribute){
+                    el.setAttribute(key,attribute[key]);
+                }
+            }
+            if(!Array.isArray(inner)){
+                inner = [inner];
+            }
+            for(var k = 0;k < inner.length;k++){
+                if(inner[k].tagName){
+                    el.appendChild(inner[k]);
+                }else{
+                    el.appendChild(document.createTextNode(inner[k]));
+                }
+            }
+            return el;
+        };
         /**
          * @method Logger
          * @private
@@ -197,4 +231,5 @@
     })(window.APP, soma.template);
     window.APP = APP;
     APP.modules = {};
+    APP.controller={};
 })(window);
