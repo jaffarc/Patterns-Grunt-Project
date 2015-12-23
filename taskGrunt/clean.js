@@ -3,7 +3,7 @@ module.exports =  {
         options: {
             force: true
         },
-        src : ['./release/*.css', './*.tmp']
-        
+        src : ['<%= grunt.task.current.args[0] %>']
+        //'./release/*.css', './*.tmp',
     },
 };

@@ -173,7 +173,10 @@ module.exports = function (grunt) {
             '| Debug js     | grunt js:project              | file config defalt:debug = true  |\n'['green'].bold +
             '| create html  | grunt html:project            | html:project                     |\n'['green'].bold +
             '| minified js  | grunt js:project              | file config defalt:debug = false |\n'['green'].bold +
+            '| watch task   | grunt watched:project         | This watch all task              |\n'['green'].bold +
             '| minified css | grunt css:project:[css||sass] | compress css or sass             |\n'['green'].bold 
+
+            
 
         grunt.log.writeln(text)
     });
@@ -201,6 +204,7 @@ module.exports = function (grunt) {
     grunt.task.registerTask('css', 'Read a file asynchronously and write its contents out', function(project,styles) {
         
         if(styles==="sass"){
+            taskRun('clean:all:./content/projects/'+project+"/styles/"+styles+"/*.css");
             taskRun("sass:dist:"+project);
         };
 
