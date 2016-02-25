@@ -46,8 +46,14 @@ module.exports = function (grunt) {
         concurrent      : require('./taskGrunt/concurrent.js'),
         strip_code      : require('./taskGrunt/strip_code.js'),
         jasmine         : require('./taskGrunt/jasmine.js'), 
-        uglify          : require('./taskGrunt/uglify.js')   
-
+        uglify          : require('./taskGrunt/uglify.js'),   
+        /*watch :{
+            sass: {
+                files: './content/projects/agenda/styles/sass/scss/*.scss',
+                tasks: ['sass:dist:agenda'],
+                
+            },
+        }*/
     });
 
 
