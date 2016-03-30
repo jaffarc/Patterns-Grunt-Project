@@ -1,17 +1,17 @@
 /*jshint indent: 4, maxlen: 250, maxerr: 10, white: true, browser: true, devel: true, nomen: true, undef: true, unused: false, strict:false */
 /*!global APP */
 /*!
- * APP JavaScript v0.0.2
+ * APP JavaScript v1.0.2
  *
  * Copyright 2015 Foundation, Inc. and other contributors
  *
- * Date: Fri 12/22/2015
+ * Date: Fri 30/03/2016
  */
 /**
  * this is Main Application
  * @namespace APP
  * @class
- * @version 0.0.2
+ * @version 1.0.2
  */
 
 (function (window) {
