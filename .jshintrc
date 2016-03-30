@@ -19,12 +19,9 @@
    "strict":false,
    "globals": {
      "APP": true,
-     "test": true,
      "equal": true,
-     "$": true,
      "require": true,
      "Ember": true,
-     "console":true,
-     "jQuery":true
+     "console":true
    }
 }
