@@ -1,7 +1,7 @@
 /*jshint indent: 4, maxlen: 250, maxerr: 10, white: true, browser: true, devel: true, nomen: true, undef: true, unused: false, strict:false */
 /*!global APP */
 /*!
- * APP JavaScript v1.0.2
+ * APP JavaScript v.0.2
  *
  * Copyright 2015 Foundation, Inc. and other contributors
  *
