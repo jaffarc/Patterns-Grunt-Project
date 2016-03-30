@@ -2,9 +2,6 @@
   "name": "Patterns-Grunt-Project",
   "description": "Precomplie with grunt  and js modules",
   "version": "0.0.3",
-  "script": {
-    "": ""
-  },
   "homepage": "www.jaffar.com.br",
   "author": {
     "name": "jaffar cardoso",
@@ -63,5 +60,8 @@
     "request": "^2.62.0",
     "time-grunt": "^1.2.2",
     "uglify-save-license": "^0.4.1"
+  },
+  "scripts": {
+    "test": "karma start --single-run"
   }
 }
