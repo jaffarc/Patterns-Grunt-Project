@@ -1,20 +1,5 @@
-/*jshint indent: 4, maxlen: 250, maxerr: 10, white: true, browser: true, devel: true, nomen: true, undef: true, unused: false, strict:false */
-/*!global APP */
-/*!
- * APP JavaScript v.0.2
- *
- * Copyright 2015 Foundation, Inc. and other contributors
- *
- * Date: Fri 30/03/2016
- */
-/**
- * this is Main Application
- * @namespace APP
- * @class
- * @version 1.0.2
- */
-
 (function (window) {
+    'use strict';
     var APP = window.APP === window.APP || {};
     APP = (function (mod, template) {
         /**
@@ -30,16 +15,19 @@
         *}
         */
         var  Private = {
-            tplsettings : template.settings
+             tplsettings : template.settings
         },
         options = {
             debug: true,
-            VERSION  : '0.0.2'
+            version  : '1.0.2',
+        
         };
         /**
         * Propriedade Publica
         * DEBUG_MODE {boolean} 
         * ser alterardo para ativar o modo DEBUG_MODE no console
+        *
+        * 
         */
         Private.extend = function(defaults, options) {
             var extended = {};
@@ -57,19 +45,8 @@
             return extended;
         };
 
-        Public = Private.extend(mod, options);
+        var Public = Private.extend(mod, options);
 
-        /**
-         * any prototype properties as needed
-         * @type {Object}
-         */
-        APP.prototype = {
-            name: "APP",
-            version: "0.0.2",
-            getName: function() {
-                return this.name;
-            }
-        };
 
         Private.errorHandler = function (arrDependency) {
 
@@ -91,21 +68,45 @@
                 }
             }
         };
+
+
+        Public.namespace = function () {
+                
+            var obj = Array.prototype.slice.apply(arguments);
+            obj.pop(obj[3]);
+            var parent = APP,
+                parts = ['modules'];
+          
+                parts.push(obj[0].toString());
+
+            for(var  i=0; i<parts.length; i+= 1) {
+                if(parent[parts[i]] === undefined) {
+                    parent[parts[i]] = obj[2];
+                }
+
+                parent = parent[parts[i]];
+            }
+            return parent;
+        };
+
+
+
+
         /**
          * @method namespace
          * @constructor
          * @param {Function} config.callback A callback function on the config object
          */
-        Public.namespace = function () {
+        Public.controller = function () {
             try{
-
+             
                 var args = Array.prototype.slice.call(arguments),
                     callback = args.pop(),
                     requiredmodules = (args[0] && typeof args[0] === "string") ? args : args[0],
                     i;
 
-                if (!(this instanceof Public.namespace)) {
-                    return new Public.namespace(requiredmodules, callback);
+                if (!(this instanceof Public.controller)) {
+                    return new Public.controller(requiredmodules, callback);
                 }
 
                 if (!requiredmodules || requiredmodules == '*') {
@@ -116,7 +117,6 @@
                         }
                     }
                 }
-                
                 Private.checkModule(requiredmodules);
 
                 for (i = 0; i < requiredmodules.length; i += 1) {
@@ -125,77 +125,20 @@
 
                callback(this);
             }catch(err) {
-                console.error("Public.namespace", "Invalid name "+ arguments[0]);
+                console.error("Public.controller", "Invalid name "+ arguments[0]);
             }
 
         };
-        /**
-         * @method startView
-         * @return {Object}
-         */
-        Public.startView  =  function ()  {
-            var args = Array.prototype.slice.call(arguments);
-
-           return document.querySelector(args) ? true :  false;
-           //return document.getElementById(id) ? true : false;
-
-        };
-
-        /**
-         * [createElement description]
-         * @param  {[type]} element   [description]
-         * @param  {[type]} attribute [description]
-         * @param  {[type]} inner     [description]
-         * @return {[type]}           [description]
-         */
-        Public.createElement = function(element,attribute,inner){
-
-            if(typeof(element) === "undefined"){
-                return false;
-            }
-            if(typeof(inner) === "undefined"){
-                inner = "";
-            }
-            var el = document.createElement(element);
-            if(typeof(attribute) === 'object'){
-                for(var key in attribute){
-                    el.setAttribute(key,attribute[key]);
-                }
-            }
-            if(!Array.isArray(inner)){
-                inner = [inner];
-            }
-            for(var k = 0;k < inner.length;k++){
-                if(inner[k].tagName){
-                    el.appendChild(inner[k]);
-                }else{
-                    el.appendChild(document.createTextNode(inner[k]));
-                }
-            }
-            return el;
-        };
-        /**
-         * @method Logger
-         * @private
-         * @description  this disable console.* to prod ative only localhost or dev-dominio.com
-         */
-        Private.Logger  = (function (){
-           if(!options.debug){
-                if(!window.console) window.console = {};
-                var methods = ["log", "debug", "warn", "info"];
-                for(var i=0;i<methods.length;i++){
-                    console[methods[i]] = function(){};
-                }
-            }
-        }());
+           
         /**
          * [checkModule description]
-         * @param  {Array} arrDependency array with dependency
-         * @return {Array}  
+         * @param  {[type]} arrDependency [description]
+         * @return {[type]}               [description]
          */
         Private.checkModule = function (arrDependency) {
             var parts = [],
-                parent = APP.modules;
+                parent = APP.modules,
+                i,j;
 
             for(i=0; i<arrDependency.length; i += 1) {
                 parent = APP.modules;
@@ -208,28 +151,23 @@
                 }
             }
         };
-        /**
-         * @description extend method public all modules 
-         * 
-         */
-        Public.extend = Private.extend;
 
-        /**
-         * config addDelimiters template soma
-         * 
-         */
-       
         Private.tplsettings.tokens.start("[[");
         Private.tplsettings.tokens.end("]]");
         
 
         Public.tpl = template;
+        
+        /**
+         * [extend description]
+         * 
+         */
+        Public.extend = Private.extend;
 
+    
 
         return Public;
 
     })(window.APP, soma.template);
     window.APP = APP;
-    APP.modules = {};
-    APP.controller={};
 })(window);

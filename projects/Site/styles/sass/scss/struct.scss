@@ -1,0 +1,174 @@
+@import "color";
+@import "height";
+@import "sprite-icons";
+@import "icons";
+body{
+	background: $background-body;
+	font-family: 'Montserrat', sans-serif;
+}
+.full{
+	width:100%;
+	max-width:970px;
+	min-width:300px;
+	margin:0 auto;
+}
+
+header {
+    width: 100%;
+    height: 45px;
+    background: $pink;
+    position: relative;
+    z-index: 10;
+	padding: 12px 0 0 0;
+
+	nav{
+		position: relative;
+		.menu{
+			float: right;
+			ul{
+			    padding: 0; 
+			    //background: #f2f2f2;
+			    //width: 132px;
+			    position: absolute;
+			    right: 0;
+			    
+			    li{
+			        display: inline-block;
+			        position: relative;
+			        line-height: 21px;
+			        text-align: left;
+
+			    	a{
+						display: block;
+						padding: 0 24px 0 0;
+						color: #333;
+						height: 37px;
+						text-decoration: none;
+			    		&:hover{
+					        color: #333;
+			    		}
+			    	}
+			    
+			    	ul.dropdown{
+				        min-width: 270px; 
+				        background: $white;
+				        display: none;
+				        position: absolute;
+				        z-index: 999;
+				        margin: 37px 0 0 0;
+				        border:1px solid  #ccc;
+				        span{
+							position: absolute;
+						    right: 14px;
+						    top: -11px;
+
+				        }
+			    	}
+
+				    &:hover ul.dropdown{
+				        display: block;	
+				    }
+				    
+				    ul.dropdown li{
+				        display: block;
+				        	/* &:first-child{
+							//background: #A8395C;
+							text-align: right;
+							padding: 0 25px 0 0;
+							height: 16px;
+							font-size: 44px;
+							color: #FFF; */
+				    	
+				    }
+			    }
+				.right{
+					float: right;
+				}
+			}
+		}
+
+	}
+
+}
+
+*[class*=seta-] {
+	width: 0;
+	height: 0;
+}
+.seta-cima {
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-bottom: 10px solid #aaa;
+background:#fff;
+}
+.seta-direita {
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+border-left: 10px solid #aaa;
+}
+.seta-baixo {
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-top: 10px solid #aaa;
+}
+.seta-esquerda {
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+border-right:10px solid #aaa;
+}
+
+section {
+	margin: 46px 0 0px 0px;
+	h1{
+		font-size: 28px;
+		color: $pink;
+
+	}
+	#destaque{
+		width: 562px;
+		height: $height-600;
+		float: left;
+
+		.play{
+			width: 560px;
+			height: 317px;
+			background: #ccc;
+		}
+		article{
+			header{
+				background: none;
+				h2{
+					font-size: 18px;
+					color: $pink;
+					float: left;
+				}
+				p{
+				    width: 50%;
+				    display: block;
+				    float: right;
+				}
+			}
+			p{
+
+			}
+		}
+	}
+
+	#listVideos{
+		width:366px;
+		height: $height-600;
+		float: right;
+
+		ul{
+			list-style-type: none;
+			width: 100%;
+			height: 505px;
+			border: 1px solid $boder-gray;
+			li{
+
+			}
+		}
+	}
+
+
+} 

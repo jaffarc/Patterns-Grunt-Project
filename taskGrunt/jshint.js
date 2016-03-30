@@ -1,9 +1,9 @@
 module.exports = {
   one: {
     src: [
-    './APP/**/*.js',
+    './content/**/*.js',
     '!Gruntfile.js',
-    '!./APP/core/0.jquery-1.11.3-min.js'],
+    '!./content/core/0.soma-template-v0.3.2.js'],
     options:{
       reporter: require('jshint-table-reporter'),
       "camelcase": false,
@@ -25,14 +25,13 @@ module.exports = {
       "browser": true,
       "strict":false,
       "globals": {
-        "MYAPP": true,
+        "APP": true,
         "test": true,
         "equal": true,
-        "$": true,
         "require": true,
         "Ember": true,
         "console":true,
-        "jQuery":true
+        
       }
     }
   },

@@ -3,44 +3,42 @@
         "site",
         {
             "module":{
-            	"Forms": true
+            	"promise": true
             },
             "styles": {
 	        	"sass" : {
 	        		"reset":true,
-	        		"menu" :true
-	        	},
-	        	"css": {
-	        		"reset" :  true,
-	        		"menu":true,
-	        		"contato":true
+	        		"struct": true,
+	        		"menu" :false
 	        	}
 
 		    },
 		    "default":{
-		    	"debug":false,
+		    	"debug":true,
 		    	"build"  : "./public/www/"
 		    }
 
         }
     ],
-    [
-        "Painel",
-   		{
+ 	[
+        "painel",
+        {
             "module":{
-            	"Forms": true
+            	"promise": true
             },
             "styles": {
 	        	"sass" : {
 	        		"reset":true,
-	        		"menu" :true
+	        		"struct": true
+
 	        	}
 
 		    },
 		    "default":{
-			    "debug":false,
-			    "build" : "./public/Painel/"
-			}
+		    	"debug":true,
+		    	"build"  : "./public/painel/"
+		    }
+
         }
     ]
 ]

@@ -2,7 +2,7 @@ module.exports =  {
     coverage: {
         src: './content/modules/**/*.js',
         options: {
-            specs: './content/spec/**/*.js',
+            specs: './content/test/**/*.js',
             template: require('grunt-template-jasmine-istanbul'),
             templateOptions: {
                 coverage: './coverage/coverage.json',

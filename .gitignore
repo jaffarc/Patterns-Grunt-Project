@@ -12,3 +12,5 @@ public/app.js
 public/package.json
 public/node_modules
 deploy.sh
+projects/Site/styles/sass/*.css
+projects/Site/styles/sass/*.map
