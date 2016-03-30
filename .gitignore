@@ -11,3 +11,4 @@ output
 public/app.js
 public/package.json
 public/node_modules
+deploy.sh
