@@ -2,11 +2,6 @@ Welcome!
 
 This structure was created for js-modules according to some standards of pattern.
 
-##References:  
-	Book: JavaScript Patterns. 
-	Book: javascript the definitive guide, 6h edition. 
-	Book: High Performance JavaScript.    
-
 ##Problem:
 We last years working in some companies, realizes the difficulty of having several projects from the same client. Especially when the project has the following structure:
 
@@ -40,33 +35,6 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|modules
 			|	|	|MODULE_Forms.js
 			|	|
-			|	|projects
-			|	|	|site
-			|	|	|	|controller
-			|	|	|	|	|controller_Forms_site.js
-			|	|	|	|	
-			|	|	|	|styles
-			|	|	|		|css
-			|	|	|		|	|reset.css
-			|	|	|		|sass
-			|	|	|			|
-			|	|	|			|scss
-			|	|	|			|	|reset.scss
-			|	|	|			|
-			|	|	|			|reset.css
-			|	|	|painel
-			|	|		|controller
-			|	|		|	|controller_Forms_painel.js
-			|	|		|	
-			|	|		|styles
-			|	|			|css
-			|	|			|	|reset.css
-			|	|			|sass
-			|	|				|
-			|	|				|scss
-			|	|				|	|reset.scss
-			|	|				|
-			|	|				|reset.css
 			|	|
 			|	|
 			|	|spec
@@ -74,7 +42,38 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|
 			|	|_config.json
 			|	
+			|projects
+			|	|site
+			|	|	|controller
+			|	|	|	|controller_Forms_site.js
+			|	|	|		
+			|	|	|styles
+			|	|		|sass
+			|	|		|reset.css
+			|	|			|scss
+			|	|				|reset.scss
+			|	|				|
+			|	painel
+			|		|controller
+			|		|	|controller_Forms_painel.js
+			|		|
+			|		|styles
+			|		|	|css
+			|		|		|reset.css
 			|	
+			|__public
+			|	|site
+			|	|	|css/general-min-un.css
+			|	|	|js/general-min-un.js	
+			|	|	|img/**.[png,jpg,gif]
+			|	|	|-index.html
+			|	|
+			|	|painel
+			|	|	|css/general-min-un.css
+			|	|	|js/general-min-un.js	
+			|	|	|img/**.[png,jpg,gif]
+			|	|	|-index.html
+			|
 			|___|tasks
 			|	|	|lib
 			|	|	|	|yui-compressor.js
@@ -96,7 +95,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|	
 			|	|	|index.hbs
 			|	|	
-			|	|landpage	
+			|	|painel	
 			|	|	|data
 			|	|	|	|data.json
 			|	|	|modules
@@ -105,19 +104,6 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|	|**.hbs
 			|	|	|	
 			|	|	|index.hbs
-			|
-			|__public
-			|	|site
-			|	|	|css/general-min-un.css
-			|	|	|js/general-min-un.js	
-			|	|	|img/**.[png,jpg,gif]
-			|	|	|-index.html
-			|	|
-			|	|painel
-			|	|	|css/general-min-un.css
-			|	|	|js/general-min-un.js	
-			|	|	|img/**.[png,jpg,gif]
-			|	|	|-index.html
 			|
 			|.gitignore
 			|.jshintrc
@@ -219,18 +205,13 @@ The compress order the modules are in order to put in config.json
 the same goes for the css or sass.
 
 
+##References:  
+	Book: JavaScript Patterns. 
+	Book: javascript the definitive guide, 6h edition. 
+	Book: High Performance JavaScript.    
+
 Just have fun. Go ahead and edit the code or add new files. This was a study!
 
-
-##FAQ: 
-I do not use UglifyJS the reason described by creator grunt-yui-compressor:
-
-Grunt’s built-in min task relies on UglifyJS. I love UglifyJS, but it has a few annoying issues and shortcomings:
-
-It strips license comments of the form /*! foo */, only preserving the first comment in the concatenated file. This may cause you to violate licenses of open-source libraries that you’re using in your projects.
-It doesn’t escape non-printable ASCII characters in the output, potentially leading to hard-to-debug issues. Try minifying '\x0b', for example.
-There’s no way to make UglifyJS not munge a variable name.
-YUI Compressor doesn’t have these issues.
 
 ## License
 
