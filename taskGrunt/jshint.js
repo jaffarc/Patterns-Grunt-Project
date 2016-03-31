@@ -3,7 +3,7 @@ module.exports = {
     src: [
     './content/**/*.js',
     '!Gruntfile.js',
-    '!./content/core/0.soma-template-v0.3.2.js'],
+    '!./content/libs/*.js'],
     options:{
       reporter: require('jshint-table-reporter'),
       "camelcase": false,

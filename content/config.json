@@ -2,6 +2,10 @@
     [
         "site",
         {
+        	"plugins":{
+        		"jquery1-11-2.min":true,
+        		"soma-template-v0.3.2":true
+        	},
             "module":{
             	"promise": true
             },
@@ -27,7 +31,7 @@
             	"promise": true
             },
             "styles": {
-	        	"sass" : {
+	        	"css" : {
 	        		"reset":true,
 	        		"struct": true
 

@@ -1,5 +1,5 @@
 /*jslint indent: 4, maxlen: 250, maxerr: 10, white: true, browser: true, devel: true, nomen: true, sloppy: true, unparam:true */
-/*global */
+
 module.exports = function (grunt) {
     'use strict';
 
@@ -27,7 +27,8 @@ module.exports = function (grunt) {
             }
         }
         return destination;
-    };
+    }
+
     grunt.loadTasks('./tasks');
 
     grunt.initConfig({
@@ -46,7 +47,6 @@ module.exports = function (grunt) {
         watch           : require('./taskGrunt/watch.js'),
         concurrent      : require('./taskGrunt/concurrent.js'),
         strip_code      : require('./taskGrunt/strip_code.js'),
-        //jasmine         : require('./taskGrunt/jasmine.js'), 
         uglify          : require('./taskGrunt/uglify.js'),   
         exec: {
             test: {
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
 
 
     Object.keys(grunt.config('pkg').devDependencies).forEach(function (dep) {
-        if ( /^grunt\-/i.test(dep) &&  dep !== "grunt-template-jasmine-istanbul") {
+        if ( /^grunt\-/i.test(dep)) {
             grunt.loadNpmTasks(dep);
         }
     });
@@ -94,34 +94,67 @@ module.exports = function (grunt) {
                                     filecompile.push(key +'.js');
 
                                 }
-                            };
+                            }
                         }
                     }
                 }
             }
         });
+
         return  function(){
             try {
                 if (filecompile.length === 0) {
                     throw "this project has not setted modules for it!";
                 }else{
 
-                    return filecompile
+                    return filecompile ;
                 }
                 //return true;
             } catch (e) {
                 var design =   '****************************\n'+
                                 e +'\n\n'+
-                                '********* WARNING **********\n'
-                grunt.log.writeln(design['red'].bold )
+                                '********* WARNING **********\n';
+
+                grunt.log.writeln(design["red"].bold);
 
                 return false;
             }
 
-        }
-    };
+        };
+    }
 
+    function checkLibs(project) {
+        var cont, 
+            libsCompile = [], 
+            count,f, result, key;
+        fs.readdirSync(contentPath).forEach(function(file) {
+            if (/\.json$/.test(file)) {
+                f = grunt.file.readJSON(contentPath+file);
+                cont = JSON.parse(JSON.stringify(f));
+                for(var i =0; i< cont.length;i++){
+                    
+                    if(cont[i][0].toLowerCase() === project.toLowerCase()){
+              
+                        result = cont[i][1].plugins;
+                       // console.log(result.value)
+                        count = 0;
+                        for(key in cont[i][1].plugins){
+                            if(result[key]){
+                                var  newName = count < 10  ?  "0"+count+key : count+key;
+                                console.log('newName=', newName);
+                                if(fs.existsSync(contentPath+'libs/'+key+'.js')){
 
+                                    libsCompile.push(newName +'.js');
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        return libsCompile;
+    }
 
 
     function checkStyles(project,styles){
@@ -131,7 +164,7 @@ module.exports = function (grunt) {
 
         fs.readdirSync(contentPath).forEach(function(file) {
             var obj, total, result,
-                result, key,f,
+                key,f,
                 cont,name, set, 
                 count, nameFile;
 
@@ -154,17 +187,17 @@ module.exports = function (grunt) {
                                             listCss.push(newName);
                                             count++;
                                         }
-                                    };
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            };
+            }
         });
 
         return  listCss;
-    };
+    }
 
     grunt.registerTask('help', 'info task gruntfile.', function () {
         var text, colors = ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow', 'rainbow'];
@@ -296,24 +329,34 @@ module.exports = function (grunt) {
     grunt.task.registerTask('debug', '...........', function (arg1) {
 
         var
-            project = arg1, min,
+            project         = arg1, min,
+            PathLibs        = './libs/*.js',
             PathController  =  './projects/'+project+'/controller/*.js',
-            PathDest    = readConfig('build', project)+'/js/general-min-un.js',
-            File    = CheckModule(project),
-            PathCore    = './content/core/*.js',
-            PathModules = './content/modules/*.js',
-            name = File(),
-            argument = Array.prototype.slice.call(arguments)[1],
+            PathDest        = readConfig('build', project)+'/js/general-min-un.js',
+            File            = CheckModule(project),
+            PathCore        = './content/core/*.js',
+            PathModules     = './modules/*.js',
+            plugins         = checkLibs(project),
+            modules         = File(),
+            argument        = Array.prototype.slice.call(arguments)[1],
             path = argument ===  undefined ? PathDest : defaults.dest;
+            console.log('plugins', plugins.length);
 
-        for (var i=0; i < name.length; i++) {
-            //taskRun('copy:'+name[i]);
-            taskRun('strip_code:multiple_files:MODULE_'+name[i]);
+        taskRun('remove:temp:'+readConfig('build', project)+'/js/');
+        
+        for (var i=0; i < plugins.length; i++) {
+            taskRun('copyLibs:'+plugins[i]);
+            //console.log(plugins[i]);
+        }
+
+        for (var i=0; i < modules.length; i++) {
+            taskRun('copyModule:'+modules[i]);
         }
 
 
-        taskRun('concat:debug:'+path+':'+PathCore+':'+PathModules+':'+PathController);
-        taskRun('remove:temp:./module');
+        taskRun('concat:debug:'+path+':'+PathCore+':'+PathModules+':'+PathController+':'+PathLibs);
+        taskRun('remove:temp:./modules');
+        taskRun('remove:temp:./libs');
 
 
     });
@@ -355,10 +398,26 @@ module.exports = function (grunt) {
      * @param  {[type]}
      * @return {[type]}
      */
-    grunt.task.registerTask('copy', 'Read a file asynchronously and write its contents out', function(name) {
+    grunt.task.registerTask('copyModule', 'Read a file asynchronously and write its contents out', function(name) {
         // Tell grunt this task is asynchronous.
         var done = this.async();
-           fsx.copy('./content/modules/MODULE_'+name, './module/MODULE_'+name, function (err) {
+        fsx.copy('./content/modules/MODULE_'+name, './modules/MODULE_'+name, function (err) {
+          if (err) return console.error(err)
+          //console.log("success!")
+          done();
+        })
+    });
+    
+    /**
+     * [description] copy all libs/plugins as jquery, soma 
+     * @param  {[type]} name) {                           var done [description]
+     * @return {[type]}       [description]
+     */
+    grunt.task.registerTask('copyLibs', 'Read a file asynchronously and write its contents out', function(name) {
+        // Tell grunt this task is asynchronous.
+        var done = this.async();
+      
+        fsx.copy('./content/libs/'+name.replace(/(^[0-9]+)/g, ''), './libs/'+name, function (err) {
           if (err) return console.error(err)
           //console.log("success!")
           done();

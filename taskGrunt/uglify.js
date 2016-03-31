@@ -1,7 +1,7 @@
 module.exports =  {
     options :  { 
         report :  'gzip',
-        preserveComments: require('uglify-save-license') 
+        //preserveComments: require('uglify-save-license') 
     }, 
     all :  { 
         expand :  true , 

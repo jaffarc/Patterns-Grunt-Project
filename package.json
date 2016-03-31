@@ -58,8 +58,7 @@
     "path": "^0.11.14",
     "plato": "^1.5.0",
     "request": "^2.62.0",
-    "time-grunt": "^1.2.2",
-    "uglify-save-license": "^0.4.1"
+    "time-grunt": "^1.2.2"
   },
   "scripts": {
     "test": "karma start --single-run"

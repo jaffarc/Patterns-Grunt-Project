@@ -6,7 +6,7 @@ module.exports = function(config) {
        // logLevel: config.LOG_INFO,
         
         files: [
-          {pattern: 'content/core/0.soma-template-v0.3.2.js', included: false},
+          {pattern: 'content/libs/soma-template-v0.3.2.js', included: false},
           {pattern: 'content/**/*.js', included: true},
           {pattern: 'content/test/*.js', included: true},
         ],

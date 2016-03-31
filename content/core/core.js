@@ -1,7 +1,7 @@
 (function (window) {
     'use strict';
     var APP = window.APP === window.APP || {};
-    APP = (function (mod, template) {
+    APP = (function (mod) {
         /**
         * Reference to the internal Private
         * instance used to make the queries.
@@ -15,7 +15,7 @@
         *}
         */
         var  Private = {
-             tplsettings : template.settings
+             //tplsettings : template.settings
         },
         options = {
             debug: true,
@@ -152,11 +152,11 @@
             }
         };
 
-        Private.tplsettings.tokens.start("[[");
+       /* Private.tplsettings.tokens.start("[[");
         Private.tplsettings.tokens.end("]]");
         
 
-        Public.tpl = template;
+        Public.tpl = template;*/
         
         /**
          * [extend description]
@@ -168,6 +168,6 @@
 
         return Public;
 
-    })(window.APP, soma.template);
+    })(window.APP);
     window.APP = APP;
 })(window);
