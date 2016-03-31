@@ -35,6 +35,9 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|modules
 			|	|	|MODULE_Forms.js
 			|	|
+			|	|libs
+			|	|	|jquey.js
+			|	|
 			|	|
 			|	|
 			|	|spec
@@ -118,6 +121,9 @@ My idea was to create a grunt where no matter what project you are working have 
 	    [
 	        "site",
 	        {
+	        	"plugins":{
+	        		"jquery":true,
+	        	},
 	            "module":{
 	            	"Forms": true
 	            },
