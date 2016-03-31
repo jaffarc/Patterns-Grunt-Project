@@ -48,12 +48,7 @@ module.exports = function (grunt) {
         concurrent      : require('./taskGrunt/concurrent.js'),
         strip_code      : require('./taskGrunt/strip_code.js'),
         uglify          : require('./taskGrunt/uglify.js'),   
-        exec: {
-            test: {
-              command: 'karma start --single-run',
-
-            },
-        },
+        exec            : require('./taskGrunt/exec_npm.js') 
     });
 
 
@@ -127,6 +122,7 @@ module.exports = function (grunt) {
         var cont, 
             libsCompile = [], 
             count,f, result, key;
+
         fs.readdirSync(contentPath).forEach(function(file) {
             if (/\.json$/.test(file)) {
                 f = grunt.file.readJSON(contentPath+file);
@@ -136,12 +132,10 @@ module.exports = function (grunt) {
                     if(cont[i][0].toLowerCase() === project.toLowerCase()){
               
                         result = cont[i][1].plugins;
-                       // console.log(result.value)
                         count = 0;
                         for(key in cont[i][1].plugins){
                             if(result[key]){
                                 var  newName = count < 10  ?  "0"+count+key : count+key;
-                                console.log('newName=', newName);
                                 if(fs.existsSync(contentPath+'libs/'+key+'.js')){
 
                                     libsCompile.push(newName +'.js');
@@ -340,7 +334,6 @@ module.exports = function (grunt) {
             modules         = File(),
             argument        = Array.prototype.slice.call(arguments)[1],
             path = argument ===  undefined ? PathDest : defaults.dest;
-            console.log('plugins', plugins.length);
 
         taskRun('remove:temp:'+readConfig('build', project)+'/js/');
         
@@ -432,8 +425,6 @@ module.exports = function (grunt) {
     grunt.task.registerTask('html', 'minified js para qualquer project criado', function () {
 
         var project  = /([!:+](\w+))/.exec(process.argv.slice(2))[2];
-
-        console.log(readConfig('build', project))
 
         taskRun('template:dev:'+project+':'+readConfig('build', project));
 

@@ -53,7 +53,6 @@
     "karma": "^0.13.22",
     "karma-requirejs": "^0.2.6",
     "load-grunt-tasks": "^3.3.0",
-    "maxmin": "^1.0.1",
     "node-minify": "^1.0.1",
     "path": "^0.11.14",
     "plato": "^1.5.0",

@@ -3,7 +3,7 @@
         "site",
         {
         	"plugins":{
-        		"jquery1-11-2.min":true,
+        		"jquery1-11-2.min":false,
         		"soma-template-v0.3.2":true
         	},
             "module":{
