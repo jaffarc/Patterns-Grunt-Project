@@ -28,6 +28,10 @@ My idea was to create a grunt where no matter what project you are working have 
 	This structure / pattern  
 
 		Client
+			|_configProject
+			|		|
+			|		|taskGrunt.js
+			|
 			|__content
 			|	|core
 			|	|	|0.soma-template-v0.3.2
@@ -51,11 +55,24 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|	|controller_Forms_site.js
 			|	|	|		
 			|	|	|styles
-			|	|		|sass
-			|	|		|reset.css
-			|	|			|scss
-			|	|				|reset.scss
-			|	|				|
+			|	|	|	|sass
+			|	|	|	|reset.css
+			|	|	|		|scss
+			|	|	|			|reset.scss
+			|	|	|			|
+			|	|	|__views
+			|	|		|
+			|	|		|site
+			|	|		|	|data
+			|	|		|	|	|data.json
+			|	|		|	|modules
+			|	|		|	|	|headerTop.hbs
+			|	|		|	|	|footer.hbs	
+			|	|		|	|	|**.hbs
+			|	|		|	|	
+			|	|		|	|index.hbs
+			|	|		|	
+			|	|
 			|	painel
 			|		|controller
 			|		|	|controller_Forms_painel.js
@@ -63,6 +80,17 @@ My idea was to create a grunt where no matter what project you are working have 
 			|		|styles
 			|		|	|css
 			|		|		|reset.css
+			|		|
+			|		|views
+			|			|painel	
+			|				|data
+			|				|	|data.json
+			|				|modules
+			|				|	|headerTop.hbs
+			|				|	|footer.hbs	
+			|				|	|**.hbs
+			|				|	
+			|				|index.hbs
 			|	
 			|__public
 			|	|site
@@ -86,27 +114,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|yui-compressor.js
 			|	|
 			|	|
-			|__templates
-			|	|
-			|	|site
-			|	|	|data
-			|	|	|	|data.json
-			|	|	|modules
-			|	|	|	|headerTop.hbs
-			|	|	|	|footer.hbs	
-			|	|	|	|**.hbs
-			|	|	|	
-			|	|	|index.hbs
-			|	|	
-			|	|painel	
-			|	|	|data
-			|	|	|	|data.json
-			|	|	|modules
-			|	|	|	|headerTop.hbs
-			|	|	|	|footer.hbs	
-			|	|	|	|**.hbs
-			|	|	|	
-			|	|	|index.hbs
+			|
 			|
 			|.gitignore
 			|.jshintrc
@@ -117,9 +125,9 @@ My idea was to create a grunt where no matter what project you are working have 
 
 
 ##Config
-	[
-	    [
-	        "site",
+	
+	{
+	    "site":[
 	        {
 	        	"plugins":{
 	        		"jquery":true,
@@ -146,8 +154,8 @@ My idea was to create a grunt where no matter what project you are working have 
 
 	        }
 	    ],
-	  	[
-	        "Painel",
+	  	
+	    "Painel":[
 	   		{
 	            "module":{
 	            	"Forms": true
@@ -165,7 +173,7 @@ My idea was to create a grunt where no matter what project you are working have 
 				}
 	        }
 	    ]
-	]		
+	}		
 
 
 
