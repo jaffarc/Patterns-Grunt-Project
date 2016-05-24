@@ -25,7 +25,6 @@ module.exports = function (grunt) {
         plato           : require('./taskGrunt/plato.js'),
         jshint          : require('./taskGrunt/jshint.js'),
         concat          : require('./taskGrunt/concat.js'),
-        //min             : require('./taskGrunt/min.js'),
         remove          : require('./taskGrunt/remove.js'),
         clean           : require('./taskGrunt/clean.js'),
         cssmin          : require('./taskGrunt/cssmin.js'),

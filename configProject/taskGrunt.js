@@ -35,10 +35,8 @@ var express = require('express'),
             if (/\.json$/.test(file)) {
                 var json = JSON.parse(fs.readFileSync(caminho+file, 'utf8'));
                 for( key in json){
-                    if(key === project && type === 'build'){
-                        mod =  json[key][0].default.build
-                    }else{
-                         mod = json[key][0].default.debug
+                    if(key  === project){
+                        mod = type === 'build'  ? json[key][0].default.build :  json[key][0].default.debug;
                     }
                 }
             }    
