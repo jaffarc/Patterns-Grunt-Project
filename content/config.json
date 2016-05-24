@@ -1,49 +1,49 @@
-[
-    [
-        "site",
+{
+    "painel": [
         {
-        	"plugins":{
-        		"jquery1-11-2.min":false,
-        		"soma-template-v0.3.2":true
-        	},
-            "module":{
-            	"promise": true
+            "plugins": {
+                "jquery1-11-2.min": false,
+                "soma-template-v0.3.2": true
+            },
+            "module": {
+                "promise": true,
+                "object": false,
+                "calc": false
             },
             "styles": {
-	        	"sass" : {
-	        		"reset":true,
-	        		"struct": true,
-	        		"menu" :false
-	        	}
-
-		    },
-		    "default":{
-		    	"debug":true,
-		    	"build"  : "./public/www/"
-		    }
-
+                "sass": {
+                    "body": true,
+                    "menu": true
+                }
+            },
+            "default": {
+                "debug": true,
+                "build": "./public/www/painel"
+            }
         }
     ],
- 	[
-        "painel",
+    "site": [
         {
-            "module":{
-            	"promise": true
+            "plugins": {
+                "jquery1-11-2.min": false,
+                "soma-template-v0.3.2": false
+            },
+            "module": {
+                "Forms": false,
+                "promise": true,
+                "UploadFile": false
             },
             "styles": {
-	        	"css" : {
-	        		"reset":true,
-	        		"struct": true
-
-	        	}
-
-		    },
-		    "default":{
-		    	"debug":true,
-		    	"build"  : "./public/painel/"
-		    }
-
+                "sass": {
+                    "reset": true,
+                    "struct": true,
+                    "menu": false
+                }
+            },
+            "default": {
+                "debug": true,
+                "build": "./public/www/"
+            }
         }
     ]
-]
-
+}

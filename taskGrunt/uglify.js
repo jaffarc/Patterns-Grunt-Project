@@ -9,7 +9,7 @@ module.exports =  {
         cwd :  './temp/' , 
         src :  [ '*.js' ,  '!*.min.js' ], 
         dest :  '<%= grunt.task.current.args[0] %>' , 
-        //ext :  '.min.js' 
+        ext :  '-min-un.js' 
     }
 }
 

@@ -2,32 +2,20 @@
 
 module.exports = function (grunt) {
     'use strict';
-
     require('time-grunt')(grunt);
     var arg2, allFunc, taskRun, defaults = {}, d = new Date(),
         pkg     = require("./package.json"),
+        Config = require('./configProject/taskGrunt').Config,
         express = require('express'),
         path    = require('path'),
         fs      = require('fs'),
         fsx = require('fs-extra'),
         caminho = path.resolve(".") + '/',
-        contentPath  = caminho + 'content/';
+        contentPath  = caminho + 'content/',
         
-    grunt.template.addDelimiters('handlebars-like-delimiters', '{{', '}}');
+        conf = new Config();
 
-    function extend(destination, source) {
-        var toString = Object.prototype.toString,
-            objTest = toString.call({});
-        for (var property in source) {
-            if (source[property] && objTest == toString.call(source[property])) {
-                destination[property] = destination[property] || {};
-                extend(destination[property], source[property]);
-            } else {
-                destination[property] = source[property];
-            }
-        }
-        return destination;
-    }
+    grunt.template.addDelimiters('handlebars-like-delimiters', '{{', '}}');
 
     grunt.loadTasks('./tasks');
 
@@ -37,7 +25,7 @@ module.exports = function (grunt) {
         plato           : require('./taskGrunt/plato.js'),
         jshint          : require('./taskGrunt/jshint.js'),
         concat          : require('./taskGrunt/concat.js'),
-        min             : require('./taskGrunt/min.js'),
+        //min             : require('./taskGrunt/min.js'),
         remove          : require('./taskGrunt/remove.js'),
         clean           : require('./taskGrunt/clean.js'),
         cssmin          : require('./taskGrunt/cssmin.js'),
@@ -46,7 +34,6 @@ module.exports = function (grunt) {
         sass            : require('./taskGrunt/sass.js'),
         watch           : require('./taskGrunt/watch.js'),
         concurrent      : require('./taskGrunt/concurrent.js'),
-        strip_code      : require('./taskGrunt/strip_code.js'),
         uglify          : require('./taskGrunt/uglify.js'),   
         exec            : require('./taskGrunt/exec_npm.js') 
     });
@@ -64,134 +51,6 @@ module.exports = function (grunt) {
     taskRun = function (param) {
         grunt.task.run(param);
     };
-
-    /**
-     * chechFile config.json and add array modules = true
-     * @param  {String} arg1 name the project/ folder
-     * @return {Array}   modules for compile.
-     */
-    function CheckModule(arg1){
-        var obj, cont, result, key,
-            filecompile = [],
-            project = arg1;
-
-        fs.readdirSync(contentPath).forEach(function(file) {
-            if (/\.json$/.test(file)) {
-                cont = grunt.file.readJSON(contentPath+file);
-                obj = JSON.parse(JSON.stringify(cont));
-                for(var i =0; i< obj.length;i++){
-                    if(obj[i][0].toLowerCase() === project.toLowerCase()){
-                        result = cont[i][1].module;
-                        for( key in cont[i][1].module ){
-                            if (result[key]) {
-                                if(fs.existsSync(contentPath+'modules/MODULE_'+key+'.js')){
-
-                                    filecompile.push(key +'.js');
-
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        return  function(){
-            try {
-                if (filecompile.length === 0) {
-                    throw "this project has not setted modules for it!";
-                }else{
-
-                    return filecompile ;
-                }
-                //return true;
-            } catch (e) {
-                var design =   '****************************\n'+
-                                e +'\n\n'+
-                                '********* WARNING **********\n';
-
-                grunt.log.writeln(design["red"].bold);
-
-                return false;
-            }
-
-        };
-    }
-
-    function checkLibs(project) {
-        var cont, 
-            libsCompile = [], 
-            count,f, result, key;
-
-        fs.readdirSync(contentPath).forEach(function(file) {
-            if (/\.json$/.test(file)) {
-                f = grunt.file.readJSON(contentPath+file);
-                cont = JSON.parse(JSON.stringify(f));
-                for(var i =0; i< cont.length;i++){
-                    
-                    if(cont[i][0].toLowerCase() === project.toLowerCase()){
-              
-                        result = cont[i][1].plugins;
-                        count = 0;
-                        for(key in cont[i][1].plugins){
-                            if(result[key]){
-                                var  newName = count < 10  ?  "0"+count+key : count+key;
-                                if(fs.existsSync(contentPath+'libs/'+key+'.js')){
-
-                                    libsCompile.push(newName +'.js');
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        return libsCompile;
-    }
-
-
-    function checkStyles(project,styles){
-        var foldercss = styles,
-            listCss = [],
-            index =0;
-
-        fs.readdirSync(contentPath).forEach(function(file) {
-            var obj, total, result,
-                key,f,
-                cont,name, set, 
-                count, nameFile;
-
-            if (/\.json$/.test(file)) {
-                f = grunt.file.readJSON(contentPath+file);
-                cont = JSON.parse(JSON.stringify(f));
-                for(var i =0; i< cont.length;i++){
-                    if (cont[i][0].toLowerCase() === project.toLowerCase()) {
-                        obj = cont[i];
-                        result = cont[i][1].styles;
-                        for( name in cont[i][1].styles ){
-                            set = result[name];
-                            if(name === foldercss){
-                                count = 0;
-                                for(key in set ){
-                                    if (set[key]) {
-                                        nameFile = key+'.css';
-                                        var  newName = count < 10  ?  "0"+count+key+'.css': count+key+'.css';
-                                        if(fs.existsSync(caminho+'projects/'+project+'/styles/'+foldercss+'/'+nameFile)){
-                                            listCss.push(newName);
-                                            count++;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        return  listCss;
-    }
 
     grunt.registerTask('help', 'info task gruntfile.', function () {
         var text, colors = ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow', 'rainbow'];
@@ -217,7 +76,7 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('wait', function (start) {
         var project  = /([!:+](\w+))/.exec(process.argv.slice(2))[2];
-        taskRun(['concat_css:dist', 'cssmin:target:'+readConfig('build', project)+'/css/general-min-un.css','remove:temp:./temp' ]);
+        taskRun(['concat_css:dist', 'cssmin:target:'+conf.readConfig('build', project)+'/css/general-min-un.css','remove:temp:./temp' ]);
 
         var done = this.async();
         setTimeout(function () {
@@ -240,7 +99,7 @@ module.exports = function (grunt) {
             taskRun("sass:dist:"+project);
         };
 
-        var array = checkStyles(project,styles),
+        var array = conf.checkStyles(project,styles),
         total = array.length,
         cout =0, key, start;
 
@@ -256,40 +115,14 @@ module.exports = function (grunt) {
                 if(total === cout){
                     taskRun('wait:'+start);
                     done();
+                    /* Solution disable map sass. */
+                    taskRun('clean:all:./projects/'+project+"/styles/"+styles+"/*.map");
                 }
             })
 
         }
     });
 
-    /**
-     * [readConfig description]
-     * @param  {[type]} type    [description]
-     * @param  {[type]} project [description]
-     * @return {[type]}         [description]
-     */
-    function  readConfig(type, project){
-        var cont, mod, f, result, key;
-        fs.readdirSync(contentPath).forEach(function(file) {
-            if (/\.json$/.test(file)) {
-                f = grunt.file.readJSON(contentPath+file);
-                cont = JSON.parse(JSON.stringify(f));
-                for(var i =0; i< cont.length;i++){
-
-                    if(cont[i][0].toLowerCase() === project.toLowerCase()){
-                        result = cont[i][1].default
-                        for( key in cont[i][1].default){
-                            if(type ===  key){
-                                mod = result[key];
-                            }
-                        }
-                    }
-                }
-            }
-        });
-       
-        return mod;
-    }
     /**
      * [description]
      * @param 
@@ -298,16 +131,15 @@ module.exports = function (grunt) {
     grunt.task.registerTask('js', 'minified js', function(){
         var project  = /([!:+](\w+))/.exec(process.argv.slice(2))[2];
         
-        taskRun('jshint');
-        
+        taskRun('jshint');   
+
         /**
          * WARNING
          * tests all modules before
          */
-        //taskRun('jasmine');
         taskRun('exec:test');
-        
-        if(readConfig('debug', project)){
+      
+        if(conf.readConfig('debug', project)){
             taskRun('debug:'+project);
         }else{
             taskRun('Gzipjs:'+project);
@@ -320,34 +152,31 @@ module.exports = function (grunt) {
     *  exemple for call.
     *  grunt debug:site ||  debug:admin
     */
-    grunt.task.registerTask('debug', '...........', function (arg1) {
+    grunt.task.registerTask('debug', '...........', function () {
 
         var
-            project         = arg1, min,
+            project         = Object.values(arguments)[0], min,
             PathLibs        = './libs/*.js',
-            PathController  =  './projects/'+project+'/controller/*.js',
-            PathDest        = readConfig('build', project)+'/js/general-min-un.js',
-            File            = CheckModule(project),
+            PathController  = './projects/'+project+'/controller/*.js',
+            PathDest        = conf.readConfig('build', project)+'js/general-min-un.js',
+            File            = conf.CheckModule(project),
             PathCore        = './content/core/*.js',
             PathModules     = './modules/*.js',
-            plugins         = checkLibs(project),
+            plugins         = conf.checkLibs(project),
             modules         = File(),
-            argument        = Array.prototype.slice.call(arguments)[1],
-            path = argument ===  undefined ? PathDest : defaults.dest;
+            dest            = arguments[1] === undefined  ? PathDest  :  arguments[1];
 
-        taskRun('remove:temp:'+readConfig('build', project)+'/js/');
+        taskRun('remove:temp:'+conf.readConfig('build', project)+'/js/');
         
         for (var i=0; i < plugins.length; i++) {
             taskRun('copyLibs:'+plugins[i]);
-            //console.log(plugins[i]);
         }
 
         for (var i=0; i < modules.length; i++) {
             taskRun('copyModule:'+modules[i]);
         }
 
-
-        taskRun('concat:debug:'+path+':'+PathCore+':'+PathModules+':'+PathController+':'+PathLibs);
+        taskRun('concat:debug:'+dest+':'+PathCore+':'+PathModules+':'+PathController+':'+PathLibs);
         taskRun('remove:temp:./modules');
         taskRun('remove:temp:./libs');
 
@@ -359,18 +188,20 @@ module.exports = function (grunt) {
      * 
      */
     grunt.task.registerTask('Gzipjs', 'minified js para qualquer project criado', function (project) {
+      
         var project  = /([!:+](\w+))/.exec(process.argv.slice(2))[2]
-        extend(defaults, {
-            dest: './temp/general-min-un.js',
-            build: readConfig('build', project)+'js/'
+        
+        conf.extend(defaults, {
+            dest: './temp/general.js',
+            build: conf.readConfig('build', project)+'js/'
         });
 
         taskRun('jshint');
         taskRun('debug:'+project+':'+defaults.dest)
-        //taskRun('min:dist:'+defaults.dest+':'+defaults.build);
-        taskRun('uglify:all:'+defaults.build);
-        taskRun('remove:temp:./temp');
 
+        taskRun('uglify:all:'+defaults.build);
+
+        taskRun('remove:temp:./temp');
     });
 
     /**
@@ -426,7 +257,7 @@ module.exports = function (grunt) {
 
         var project  = /([!:+](\w+))/.exec(process.argv.slice(2))[2];
 
-        taskRun('template:dev:'+project+':'+readConfig('build', project));
+        taskRun('template:dev:'+project+':'+conf.readConfig('build', project));
 
     });
 

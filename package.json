@@ -52,6 +52,7 @@
     "jshint-table-reporter": "^0.1.0",
     "karma": "^0.13.22",
     "karma-requirejs": "^0.2.6",
+    "requirejs": "^2.2.0",
     "load-grunt-tasks": "^3.3.0",
     "maxmin": "^2.1.0",
     "node-minify": "^1.0.1",

@@ -1,31 +1,151 @@
 <!DOCTYPE html>
 <html lang='pt-br'>
 <head>
-    <title>Painel</title>
+    <title>Lista filme-netflix</title>
 
     <meta charset="utf-8"/>
-    <meta http-equiv='cache-control' content='no-cache'>
+   	<meta name="viewport" content="width=device-width, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='-1'>
     <meta http-equiv='pragma' content='no-cache'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Desenvolvedor Web" />
-    <link href="css/general-min-un.css" rel="stylesheet" />
-
-<body>
-
-<div id="target">
-	<p>My name is [[name]] and my age is [[age]]</p>
-
-  	<div data-repeat="item in items">
-    	<div>[[$index]] - [[greet]] [[item.name]]!</div>
-  	</div>
+	<link href='https://fonts.googleapis.com/css?family=Oswald|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+    <link href="/css/general-min-un.css" rel="stylesheet"  type='text/css'/>
 
 
+   <body>
+    <div id="target" class="container">        
+        <nav>
+           <div  class="pic" ><img src="pics/Gary_Donovan.jpg" alt=""> </div>
+           <ul>
+				<li  class="dropdown">
+					<a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+					<div id="boxFind" class="find dropdown-content" >
+						
+					   	<form id="busca" action="" method="post">
+					   	
+					  		<input type="radio" name="type" value="director" checked />
+					  		<label for="element-id1">Director</label>
+					  		<input type="radio" name="type" value="actor"  />
+					  		<label for="element-id1">actor</label>
+						    <input type="radio" name="type" value="title"  />
+					  		<label for="element-id1">title</label>	
+						      	
+					   		<label for="name">
+					   			<input id="nome" type="text">
+					   		</label>
+						   
+					   		<input type="button" id ="btfind" value="Buscar" />
+					   	</form>
 
-</div>
+					</div>
+					
+				</li>
+				<li class="cad">
+					<a href=""><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+						<div  class="cadastro formcad" >
+							
+						   	<form id="cadastro" action="" method="post">
+						   	
+								Seu Nome : <input type="text"  id="nome"><br>
+								Seu E-mail : <input type="text" id="email"><br>
+								Senha : <input  type="password"  id="senha"><br>
+								<input type="button"  id="btcad" value="Enviar">
+							
+						   	</form>
+
+						</div>
+				</li>
+           
+
+           		<li class="totalsave">
+					<a href=""  alt="total filme na sua lista">
+						<i class="fa fa-film" aria-hidden="true"></i>
+						<span>8</span>
+					</a>
+				</li>
+				
+			</ul>
+        </nav>
+        <section class="section-header-top">
+           <h1>[[title]]</h1>
+        </section>
+        <section class="content">
+				<ul id="Comedia">
+					<h1>Comedia</h1>				
+					<li data-repeat="item in comedia">
+						<a href="#" class="favorit" id="[[item.show_id]]">
+							
+							<img id=[[item.show_id]] title="[[item.cat]]" data-src="[[item.poster]]" alt="">
+						</a>
+						<!-- <span><i class="fa fa-heart" aria-hidden="true"></i></span> -->
+					</li>
+				</ul>
+				<ul id="Action">
+					<h1>Action</h1>
+					<li data-repeat="item in action">
+						<img id=[[item.show_id]]  title="[[item.cat]]" data-src="[[item.poster]]" alt="">
+					</li>
+				</ul>
+				<ul  id="Thriller">
+					<h1>Thriller</h1>
+					<li data-repeat="item in thriller">
+
+							<img  id=[[item.show_id]]  title="[[item.cat]]" data-src="[[item.poster]]" alt="" >
+						
+					</li>
+				</ul>
+				<ul  id="Children">
+					<h1>Children</h1>
+					<li data-repeat="item in children">
+
+							<img  id=[[item.show_id]] title="[[item.cat]]" data-src="[[item.poster]]" alt="" >
+						
+					</li>
+				</ul>
+				
+				<ul id="Romantic">
+					<h1>Romantic</h1>
+					<li data-repeat="item in romantic">
+							
+							<img  id=[[item.show_id]] title="[[item.cat]]" data-src="[[item.poster]]" alt="" >
+						
+					</li>
+				</ul>
+				<ul id="Horror">
+					<h1>Horror</h1>
+					<li data-repeat="item in horror">
+							
+							<img id=[[item.show_id]]  title="[[item.cat]]" data-src="[[item.poster]]" alt="" >
+						
+					</li>
+				</ul>
+				<ul id="Dramas">
+					<h1>Dramas</h1>
+					<li data-repeat="item in dramas">
+							
+							<img id=[[item.show_id]] title="[[item.cat]]" data-src="[[item.poster]]" alt="" >
+						
+					</li>
+				</ul>
+				<ul id="Documentaries">
+					<h1>Documentaries</h1>
+					<li data-repeat="ite in docum">
+							
+							<img id=[[ite.show_id]] title="[[item.cat]]" data-src="[[ite.poster]]" alt="" >
+						
+					</li>
+				</ul>					
+        </section>
+    </div>
+
+
+
 
 <script src="/js/general-min-un.js"></script>
 </body>
 </html>
+
+
 
