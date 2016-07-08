@@ -7,7 +7,7 @@ module.exports =  {
       options: {
         paths: 'content/',
         themedir: 'yuidoc-themes/default',
-        outdir: './info-project/Documentation/'
+        outdir: './info-project/jsdoc/'
       }
   }
 };

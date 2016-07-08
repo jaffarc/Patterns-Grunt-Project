@@ -9,7 +9,8 @@ module.exports = {
             "watch:html:<%= grunt.task.current.args[0] %>", 
             "watch:htmlDesc:<%= grunt.task.current.args[0] %>", 
             "watch:sass:<%= grunt.task.current.args[0] %>",
-            "watch:sassA:<%= grunt.task.current.args[0] %>"
+            "watch:sassA:<%= grunt.task.current.args[0] %>",
+            "watch:config:<%= grunt.task.current.args[0] %>"
         ]
     }
 };

@@ -24,4 +24,8 @@ module.exports =  {
         tasks: ['sass:dist:<%= grunt.task.current.args[1] %>'],
         
     },
+    config: {
+        files: "./content/**/*.json",
+        tasks: [["js:<%= grunt.task.current.args[1] %>"],'sass:dist:<%= grunt.task.current.args[1] %>']
+    },
 }

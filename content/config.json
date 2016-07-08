@@ -12,8 +12,7 @@
             },
             "styles": {
                 "sass": {
-                    "body": true,
-                    "menu": true
+                    "main": true
                 }
             },
             "default": {
@@ -35,9 +34,7 @@
             },
             "styles": {
                 "sass": {
-                    "reset": true,
-                    "struct": true,
-                    "menu": false
+                    "main": true
                 }
             },
             "default": {

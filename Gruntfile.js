@@ -34,7 +34,8 @@ module.exports = function (grunt) {
         watch           : require('./taskGrunt/watch.js'),
         concurrent      : require('./taskGrunt/concurrent.js'),
         uglify          : require('./taskGrunt/uglify.js'),   
-        exec            : require('./taskGrunt/exec_npm.js') 
+        exec            : require('./taskGrunt/exec_npm.js'),
+        sassdoc         : require('./taskGrunt/sassdoc.js'),
     });
 
 
@@ -53,22 +54,22 @@ module.exports = function (grunt) {
 
     grunt.registerTask('help', 'info task gruntfile.', function () {
         var text, colors = ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow', 'rainbow'];
-        grunt.log.writeln('');
+        //grunt.log.writeln('');
         grunt.log.writeln('Help das task do projeto'['yellow'].bold);
 
         text =
-            '| task:        | call:                         | description:                     |\n'['green'].bold +
-            '|--------------| ------------------------------| ---------------------------------|\n'['green'].bold +
-            '| doc and plato| grunt info:project            | create yuidoc &  plato           |\n'['green'].bold +
-            '| Debug js     | grunt js:project              | file config defalt:debug = true  |\n'['green'].bold +
-            '| create html  | grunt html:project            | html:project                     |\n'['green'].bold +
-            '| minified js  | grunt js:project              | file config defalt:debug = false |\n'['green'].bold +
-            '| watch task   | grunt watched:project         | This watch all task              |\n'['green'].bold +
-            '| minified css | grunt css:project:[css||sass] | compress css or sass             |\n'['green'].bold 
+            '| task:                | call:                         | description:                     |\n' +
+            '|----------------------| ------------------------------| ---------------------------------|\n' +
+            '| doc, sassdoc, plato  | grunt info:project            | create yuidoc &  plato           |\n' +
+            '| Debug js             | grunt js:project              | file config defalt:debug = true  |\n' +
+            '| create html          | grunt html:project            | html:project                     |\n' +
+            '| minified js          | grunt js:project              | file config defalt:debug = false |\n' +
+            '| watch task           | grunt watched:project         | This watch all task              |\n' +
+            '| minified css         | grunt css:project:[css||sass] | compress css or sass             |\n' 
 
             
 
-        grunt.log.writeln(text)
+        grunt.log.writeln(text);
     });
     /**
      *@description
@@ -136,7 +137,8 @@ module.exports = function (grunt) {
          * WARNING
          * tests all modules before
          */
-        taskRun('exec:test');
+        
+        taskRun('exec');
       
         if(conf.readConfig('debug', project)){
             taskRun('debug:'+project);
@@ -213,6 +215,7 @@ module.exports = function (grunt) {
         }
         taskRun('plato');
         taskRun('yuidoc');
+        taskRun('sassdoc');
 
     });
 

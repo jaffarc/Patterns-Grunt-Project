@@ -1,6 +1,5 @@
 module.exports =  {
-	test: {
-	 	command: 'karma start --single-run',
-
-	},
+ 	list_files: {
+    	cmd: 'npm test'
+    }
 };

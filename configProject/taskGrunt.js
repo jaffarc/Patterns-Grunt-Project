@@ -2,15 +2,15 @@ var express = require('express'),
     fs      = require('fs'),
     path = require('path'),
     fsx = require('fs-extra'),
-    caminho = path.join(__dirname, '..\\content\\'),
-    pathStyle = path.join(__dirname, '..\\projects\\'),
+    caminho = path.join(__dirname, '../content/'),
+    pathStyle = path.join(__dirname, '../projects/'),
     date = new Date(),
     filecompile = [];
 
     /**
      * [Config description]
      */
-    var Config = function () {};
+    const Config = function () {};
 
     /**
      * [readFile description]
