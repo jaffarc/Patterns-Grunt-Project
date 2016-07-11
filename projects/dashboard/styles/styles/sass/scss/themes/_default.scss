@@ -1,0 +1,306 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+
+.container-fluid{
+	padding: 0;
+}
+.infodisable{
+	display: none;
+}
+@media (orientation: portrait) {
+ .infodisable {
+   	display: block;
+   	background: #333;
+   	height: 100vh;
+   	width: 100vw;
+   	position: absolute;
+    z-index: 9;
+  }
+}
+
+
+.topo{
+	padding: 0 0 0 80px;
+	background: #fff;
+	border-bottom: 1px solid  #ccc;
+	@include respond-to(handhelds) { height: 20vh ;}
+  	@include respond-to(medium-screens) { height: 16vh ;}
+  	@include respond-to(wide-screens) { height: 160px;}
+	
+	.listDropdownProject{
+		@include make-md-column(12);
+		margin: 15px 0 15px  0;
+	}
+	
+	.boxProjectOrder{
+		@include make-md-column(4);
+		padding:0;
+
+		@include respond-to(medium-screens) { @include make-md-column(6);}
+		@include respond-to(medium-screens) { padding:0;}
+		.btnProject{
+			@include make-md-column(3);
+			padding: 0;
+			@include respond-to(medium-screens) { @include make-md-column(4);}
+			@include respond-to(medium-screens) { padding: 0;}
+			.label-red {
+				font-family: monospace;
+			    background-color: #d9534f;
+			    border-color: #d9534f;
+			    width: 100%;
+			    i{
+					margin: 0 0 0 0;
+			    }
+			}
+		}
+
+		.boxfilter{
+			@include  make-md-column(2);
+			padding:0;
+  
+		}
+		.dropdown-ajust{
+		/* 	width: 157px;
+		margin: auto; */
+			button{
+				width: 100%;
+			}
+		}
+
+	}
+	.boxinput{
+		@include make-md-column(6);
+		height: 33px;
+		padding: 0;
+		input[type='text']{
+			width: 100%;
+			height: 35px;
+			border-radius: 6px;
+			border:1px solid #eee;
+			&:hover{
+				background: #eee;
+				border-radius: 6px;
+			}
+		}
+		/* style icon */
+		.inner-addon .glyphicon {
+		  position: absolute;
+		  padding: 10px;
+		  pointer-events: none;
+		  color: #ccc;
+		}
+
+		/* align icon */
+		
+		.right-addon .glyphicon { right: 0px;}
+
+		/* add padding  */
+		.left-addon input  { padding-left:  30px; }
+		.right-addon input { padding-right: 30px; }
+
+		
+	}	
+
+	.BorderDivisor{
+		border-right: 1px solid #BFBEBE;
+	}
+	.iconLayout{
+		margin: 4px  0  0 0;
+		
+		a{
+			font-size: 20px;
+			color: #9C9C9C;
+			text-decoration: none;
+			&:hover{
+				color: orange;
+			}
+			
+		}
+	}
+}
+
+#box{
+	width: 100%;
+	padding: 0 0  0  30px;
+	.DescBox{
+		position: relative;
+		width: 573px;
+		height: 360px;
+		background: #fff;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		margin: 15px 15px 0 0;
+		padding: 17px;
+		float: left;
+		h3{
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			font-family: monospace;
+			color: #545353;
+		}
+		p{
+			float: left;
+			color: #333;
+			margin: 0;
+			width: 100%;
+			font-size: 12px;
+			span{
+				display: inline-block;
+				color: orange;
+				font-weight: bolder;
+				font-family: monospace;
+			}
+		}
+		time{
+			font-size: 11px;
+			font-family: monospace;
+			color: #545353;
+		}
+		hr{
+			margin: 9px 0 21px;
+		}	
+		.view{
+		    background: #333;
+		    display: inline-block;
+		    width: 58px;
+		    height: 27px;
+		    border-radius: 34px;
+		    right: 0;
+		    position: absolute;
+		    color: #fff;
+		    padding: 6px 0 0 8px;
+		    font-size: 12px;
+		    font-family: sans-serif;
+		    margin: 0 15px 0 0;
+		    top: 15px;
+		    a{
+				background-color: transparent;
+				color: #FFFFFF;
+				text-decoration: none;
+				i{
+					margin: 1px 4px 0 0;
+					float: left;
+					&:hover .icon-lock:before {
+						color: #ccc;
+					display: none;
+					}
+				}
+				.icon-lock{
+						display: block;
+				}
+		    }
+		}
+		.infoHoras{
+			div:first-child{
+			    width: 165px;
+			    position: relative;
+			    height: 200px;
+			    float: left;
+			    border-right: 1px solid #ccc;
+			    /* margin: 12px 0 0 0; */
+				h4{
+					font-size: 14px;
+					font-family: monospace;
+					color: #333;
+					text-align: center;
+				}
+				span{
+					width: 100%;
+					text-align: center;
+					display: inline-block;
+					font-size: 45px;
+				}
+			}
+			div{
+				position: relative;
+				width:373px;
+				height: 186px;
+				canvas{
+				    width: 385px;
+					height: 228px;
+					position: absolute;
+					left: 162px;
+					/* top: 67px; */
+				}
+
+			}
+
+		}
+		.status{
+			position: relative;
+			p{
+				width: 100%;
+				border: 0;
+				margin: 0 0 10px 0;
+				color: #676666;
+
+			}
+			i{
+				margin: 0 5px 0 -1px;
+				top: -1px;
+			}
+			span{
+				display: inline-block;
+				float: left;
+				font-size: 12px;
+				font-family: monospace;
+				font-weight: bolder;
+				position: relative;
+				width: 70px;
+				height: 18px;
+				&:first-of-type{
+					color: #13D013;
+					position: relative;
+
+				}
+				&:nth-child(n+3){
+					color: #777;
+					font-size: 17px;
+					width: 21px;
+				}
+				&:nth-child(3){
+					margin: 0 5px 0 415px;
+					border-right: 1px solid #ccc;
+					color: #f0ad4e;
+				}
+			}
+		}
+	}
+}
+
+.menu {                
+	background-color: #bb250d;
+    position: absolute;
+    left: 0px;
+    height: 100vh;
+    width: 62px;
+	.pic{
+			overflow: hidden;
+	}
+	ul{
+		margin-top: 72px;
+		margin-bottom: 100px;
+		list-style: none;
+		li{
+			position: relative;
+			display: block;
+		}
+	}
+}
+
+section {       
+    background: #f9f9fb;  
+    height: 84vh;
+    overflow-y:auto;
+    overflow-x: hidden;
+    padding-left: 50px;
+    h1{
+		font-size: 3em;
+		line-height: 1.25em;
+		color: #699;
+    }
+    
+}

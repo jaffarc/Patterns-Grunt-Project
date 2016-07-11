@@ -6110,7 +6110,7 @@ body {
 }
 
 /* line 57, scss/base/_helpers.scss */
-.circle {
+.circle, .DescriUser .infoText .equipe ul li {
   position: relative;
   border-radius: 50%;
   width: 139px;
@@ -6118,6 +6118,198 @@ body {
   background: #dedede;
   overflow: hidden;
   float: left;
+}
+
+/* line 67, scss/base/_helpers.scss */
+.DescriUser .infoText .boss h3, .DescriUser .infoText .equipe h3 {
+  padding-top: 2.25em;
+  padding-bottom: .75em;
+  font-size: 20px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03125em;
+  font-family: "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/* line 5, scss/pages/_struct.scss */
+#box {
+  /* 	width: 100%;
+  padding: 0 0  0  30px; */
+  margin-left: -15px;
+  margin-right: -15px;
+}
+/* line 14, scss/vendor/bootstrap/bootstrap/mixins/_clearfix.scss */
+#box:before, #box:after {
+  content: " ";
+  display: table;
+}
+/* line 19, scss/vendor/bootstrap/bootstrap/mixins/_clearfix.scss */
+#box:after {
+  clear: both;
+}
+/* line 9, scss/pages/_struct.scss */
+#box .col-md-4 {
+  position: relative;
+  /* width: 573px; */
+  height: 360px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  /* margin: 15px 15px 0 0; */
+  /* padding: 17px; */
+  /* float: left; */
+}
+/* line 19, scss/pages/_struct.scss */
+#box .col-md-4 h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: monospace;
+  color: #545353;
+}
+/* line 26, scss/pages/_struct.scss */
+#box .col-md-4 p {
+  float: left;
+  color: #333;
+  margin: 0;
+  width: 100%;
+  font-size: 12px;
+}
+/* line 32, scss/pages/_struct.scss */
+#box .col-md-4 p span {
+  display: inline-block;
+  color: orange;
+  font-weight: bolder;
+  font-family: monospace;
+}
+/* line 39, scss/pages/_struct.scss */
+#box .col-md-4 time {
+  font-size: 11px;
+  font-family: monospace;
+  color: #545353;
+}
+/* line 44, scss/pages/_struct.scss */
+#box .col-md-4 hr {
+  margin: 9px 0 21px;
+}
+/* line 47, scss/pages/_struct.scss */
+#box .col-md-4 .view {
+  background: #333;
+  display: inline-block;
+  width: 58px;
+  height: 27px;
+  border-radius: 34px;
+  right: 0;
+  position: absolute;
+  color: #fff;
+  padding: 6px 0 0 8px;
+  font-size: 12px;
+  font-family: sans-serif;
+  margin: 0 15px 0 0;
+  top: 15px;
+}
+/* line 61, scss/pages/_struct.scss */
+#box .col-md-4 .view a {
+  background-color: transparent;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 65, scss/pages/_struct.scss */
+#box .col-md-4 .view a i {
+  margin: 1px 4px 0 0;
+  float: left;
+}
+/* line 68, scss/pages/_struct.scss */
+#box .col-md-4 .view a i:hover .icon-lock:before {
+  color: #ccc;
+  display: none;
+}
+/* line 73, scss/pages/_struct.scss */
+#box .col-md-4 .view a .icon-lock {
+  display: block;
+}
+/* line 79, scss/pages/_struct.scss */
+#box .col-md-4 .infoHoras div:first-child {
+  width: 165px;
+  position: relative;
+  height: 200px;
+  float: left;
+  border-right: 1px solid #ccc;
+  /* margin: 12px 0 0 0; */
+}
+/* line 86, scss/pages/_struct.scss */
+#box .col-md-4 .infoHoras div:first-child h4 {
+  font-size: 14px;
+  font-family: monospace;
+  color: #333;
+  text-align: center;
+}
+/* line 92, scss/pages/_struct.scss */
+#box .col-md-4 .infoHoras div:first-child span {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  font-size: 45px;
+}
+/* line 99, scss/pages/_struct.scss */
+#box .col-md-4 .infoHoras div {
+  position: relative;
+  width: 373px;
+  height: 186px;
+}
+/* line 103, scss/pages/_struct.scss */
+#box .col-md-4 .infoHoras div canvas {
+  width: 385px;
+  height: 228px;
+  position: absolute;
+  left: 162px;
+  /* top: 67px; */
+}
+/* line 114, scss/pages/_struct.scss */
+#box .col-md-4 .status {
+  position: relative;
+}
+/* line 116, scss/pages/_struct.scss */
+#box .col-md-4 .status p {
+  width: 100%;
+  border: 0;
+  margin: 0 0 10px 0;
+  color: #676666;
+}
+/* line 123, scss/pages/_struct.scss */
+#box .col-md-4 .status i {
+  margin: 0 5px 0 -1px;
+  top: -1px;
+}
+/* line 127, scss/pages/_struct.scss */
+#box .col-md-4 .status span {
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  font-family: monospace;
+  font-weight: bolder;
+  position: relative;
+  width: 70px;
+  height: 18px;
+}
+/* line 136, scss/pages/_struct.scss */
+#box .col-md-4 .status span:first-of-type {
+  color: #13D013;
+  position: relative;
+}
+/* line 141, scss/pages/_struct.scss */
+#box .col-md-4 .status span:nth-child(n+3) {
+  color: #777;
+  font-size: 17px;
+  width: 21px;
+}
+/* line 146, scss/pages/_struct.scss */
+#box .col-md-4 .status span:nth-child(3) {
+  margin: 0 5px 0 415px;
+  border-right: 1px solid #ccc;
+  color: #f0ad4e;
 }
 
 /* line 5, scss/pages/_login.scss */
@@ -6239,6 +6431,382 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   float: none;
+}
+
+/* line 2, scss/pages/_userinfo.scss */
+.listUser {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 84vh;
+}
+/* line 3, scss/pages/_userinfo.scss */
+.listUser .ajustTable {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 53vh;
+}
+@media (min-width: 992px) {
+  /* line 3, scss/pages/_userinfo.scss */
+  .listUser .ajustTable {
+    float: left;
+    width: 100%;
+  }
+}
+/* line 9, scss/pages/_userinfo.scss */
+.listUser .ajustTable table thead tr th {
+  font-weight: bolder;
+  font-size: 11px;
+}
+/* line 12, scss/pages/_userinfo.scss */
+.listUser .ajustTable table thead tr th:nth-child(1) {
+  width: 10px;
+}
+/* line 21, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr td {
+  font-size: 13px;
+  font-family: monospace;
+}
+/* line 24, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr td span {
+  font-family: sans-serif;
+  padding-top: 4px;
+}
+/* line 28, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr td span a i {
+  color: #FFFFFF;
+}
+/* line 34, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc {
+  background: #FFFFFF;
+  height: 87px;
+}
+/* line 38, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .benef {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  /* line 38, scss/pages/_userinfo.scss */
+  .listUser .ajustTable table tbody tr .desc .content .benef {
+    float: left;
+    width: 66.66667%;
+  }
+}
+/* line 41, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #5D5D5D;
+  height: 25px;
+  position: relative;
+}
+@media (min-width: 992px) {
+  /* line 41, scss/pages/_userinfo.scss */
+  .listUser .ajustTable table tbody tr .desc .content .boxinfo {
+    float: left;
+    width: 33.33333%;
+  }
+}
+/* line 46, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo span {
+  color: #ff4500;
+}
+/* line 50, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo i {
+  margin: 1px 6px 0 0px;
+  float: left;
+}
+/* line 54, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo .label {
+  color: #333;
+  background: #ededed;
+  margin: 3px 0 0 0;
+  display: inline-block;
+}
+/* line 60, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo ul {
+  position: relative;
+}
+/* line 62, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo ul li {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  text-align: right;
+}
+/* line 67, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo ul li:nth-child(1) {
+  color: #333;
+  width: 50%;
+  display: inline-block;
+  text-align: left;
+  left: 0;
+}
+/* line 76, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo p {
+  width: 100%;
+}
+/* line 79, scss/pages/_userinfo.scss */
+.listUser .ajustTable table tbody tr .desc .content .boxinfo:nth-child(1) {
+  height: 70px;
+  padding-right: 0;
+}
+@media (min-width: 992px) {
+  /* line 2, scss/pages/_userinfo.scss */
+  .listUser {
+    float: left;
+    width: 66.66667%;
+  }
+}
+
+/* line 96, scss/pages/_userinfo.scss */
+.DescriUser {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #FFFFFF;
+  height: 100vh;
+  padding-top: 15px;
+}
+@media (min-width: 992px) {
+  /* line 96, scss/pages/_userinfo.scss */
+  .DescriUser {
+    float: left;
+    width: 33.33333%;
+  }
+}
+/* line 102, scss/pages/_userinfo.scss */
+.DescriUser .groupUser {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #eee;
+  padding: 0 0 0 10px;
+  height: 173px;
+}
+@media (min-width: 992px) {
+  /* line 102, scss/pages/_userinfo.scss */
+  .DescriUser .groupUser {
+    float: left;
+    width: 100%;
+  }
+}
+/* line 107, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .picUser {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  /* line 107, scss/pages/_userinfo.scss */
+  .DescriUser .groupUser .picUser {
+    float: left;
+    width: 33.33333%;
+  }
+}
+/* line 109, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .picUser .circle, .DescriUser .groupUser .picUser .infoText .equipe ul li, .DescriUser .infoText .equipe ul .groupUser .picUser li {
+  position: relative;
+  border-radius: 50%;
+  width: 139px;
+  height: 139px;
+  background: #dedede;
+  overflow: hidden;
+  float: left;
+}
+/* line 117, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .picUser .circle img, .DescriUser .groupUser .picUser .infoText .equipe ul li img, .DescriUser .infoText .equipe ul .groupUser .picUser li img {
+  width: 144px;
+}
+/* line 120, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .picUser .circle .edit, .DescriUser .groupUser .picUser .infoText .equipe ul li .edit, .DescriUser .infoText .equipe ul .groupUser .picUser li .edit {
+  position: absolute;
+  top: 110px;
+  left: 7px;
+  width: 125px;
+  height: 30px;
+  /* background-color: red; */
+  background: rgba(35, 35, 35, 0.68);
+  display: none;
+}
+/* line 134, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  /* line 134, scss/pages/_userinfo.scss */
+  .DescriUser .groupUser .Details {
+    float: left;
+    width: 66.66667%;
+  }
+}
+/* line 136, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details ul.list {
+  width: 400px;
+}
+/* line 139, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details ul.list li {
+  font-family: monospace;
+  font-size: 12px;
+}
+/* line 143, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details ul.list .column-1 {
+  font-size: 25px;
+}
+/* line 146, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details ul.list .column-2 {
+  font-size: 18px;
+  color: #FF880A;
+  letter-spacing: 0px;
+  font-family: sans-serif;
+  padding: 0 0 8px 2px;
+}
+/* line 153, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details ul.list .column-3 {
+  width: 50%;
+  float: left;
+}
+/* line 157, scss/pages/_userinfo.scss */
+.DescriUser .groupUser .Details ul.list i {
+  float: left;
+  margin: 0 7px 0 0;
+  color: #FF880A;
+}
+/* line 166, scss/pages/_userinfo.scss */
+.DescriUser .infoText {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  /* line 166, scss/pages/_userinfo.scss */
+  .DescriUser .infoText {
+    float: left;
+    width: 100%;
+  }
+}
+/* line 173, scss/pages/_userinfo.scss */
+.DescriUser .infoText .boss ul li {
+  color: #222222;
+}
+/* line 176, scss/pages/_userinfo.scss */
+.DescriUser .infoText .boss ul li span {
+  font-weight: bold;
+  color: orangered;
+  font-size: 13px;
+  font-family: monospace;
+}
+/* line 186, scss/pages/_userinfo.scss */
+.DescriUser .infoText .boss img {
+  width: 100%;
+}
+/* line 195, scss/pages/_userinfo.scss */
+.DescriUser .infoText .equipe ul li {
+  width: 55px;
+  height: 55px;
+  margin: 4px;
+}
+/* line 200, scss/pages/_userinfo.scss */
+.DescriUser .infoText .equipe ul li img {
+  width: 100%;
+}
+/* line 204, scss/pages/_userinfo.scss */
+.DescriUser .infoText .equipe ul li a i {
+  width: 100%;
+  text-align: center;
+  padding: 18px 0 0 2px;
+  font-size: 1.4em;
+  color: #8E8E8E;
+}
+
+/* line 218, scss/pages/_userinfo.scss */
+.UserDescProjec {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #F2F3F8;
+  float: left;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 309px;
+}
+@media (min-width: 992px) {
+  /* line 218, scss/pages/_userinfo.scss */
+  .UserDescProjec {
+    float: left;
+    width: 100%;
+  }
+}
+/* line 226, scss/pages/_userinfo.scss */
+.UserDescProjec img {
+  width: 76%;
+}
+
+/* line 236, scss/pages/_userinfo.scss */
+.progress {
+  height: 4px;
+  margin: 18px 0 0 0;
+  background: #ededed;
+}
+
+/* line 242, scss/pages/_userinfo.scss */
+.progress-bar {
+  float: left;
+  width: 0;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #337ab7;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width .6s ease;
+  -o-transition: width .6s ease;
+  transition: width .6s ease;
+}
+
+/* line 2, scss/pages/project.scss */
+section div.ProjectTable {
+  @inclune make-md-column(12)
+	    height: 320px;
+  overflow-y: auto;
+}
+/* line 10, scss/pages/project.scss */
+section div.ProjectTable table tbody tr td div.progress {
+  margin: 6px 0 0;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  height: 7px;
+  overflow: hidden;
+  width: 80%;
+  float: left;
+}
+/* line 19, scss/pages/project.scss */
+section div.ProjectTable table tbody tr td span {
+  display: inline-block;
+  font-size: 12px;
+  float: left;
+  width: 20%;
+  text-align: center;
+  font-family: monospace;
 }
 
 /* line 6, scss/themes/_default.scss */

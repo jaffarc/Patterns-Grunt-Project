@@ -1,0 +1,111 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+///Set up a decent box model on the root element
+/// @author jaffar cardoso
+/// @param {String} $context
+
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;border:none;outline:none;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+a {text-decoration:none;}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	background: #b4b5b8; 
+	background: -webkit-linear-gradient(right, #b4b5b8, #b4b5b8);
+	background: -moz-linear-gradient(right, #b4b5b8, #b4b5b8);
+	background: -o-linear-gradient(right, #b4b5b8, #b4b5b8);
+	background: linear-gradient(to left, #b4b5b8, #b4b5b8);
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;      
+	overflow: hidden;
+}
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*, *::before, *::after {
+	box-sizing: inherit;
+} 
+
+/**
+ * Basic styles for links
+ */
+a {
+	color: $brand-color;
+	text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+/**
+ //definition class boostrap
+ */
+section {
+	.content{
+		@include make-row();
+	}
+	.iconLayout{
+		@include make-md-column(5);  
+	}
+} 
+
+
+    .listUser{
+        @include make-md-column(8); 
+    }
+.bg-white{
+	background: #fff;
+}
+
+
+@media screen and (max-width: 655px){
+   .login-page{
+   	width: 100%;
+   	height: 100vh;
+   	padding: 0;
+   		form.register-form {
+   			padding: 12px;
+   			height: 100vh;
+   			h1{
+				width: 100%;
+				font-size: 13px;
+
+   			}
+   			a{
+   				float: none;
+   			}
+   		}
+   }
+
+  }
+
+  @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+	#box .DescBox{
+		width: 450px;
+	}
+
+}

@@ -1,5 +1,5 @@
 {
-    "painel": [
+    "dashboard": [
         {
             "plugins": {
                 "jquery1-11-2.min": false,
@@ -17,7 +17,7 @@
             },
             "default": {
                 "debug": true,
-                "build": "./public/www/painel"
+                "build": "./public/www/dashboard"
             }
         }
     ],

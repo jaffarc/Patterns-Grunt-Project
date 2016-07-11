@@ -73,7 +73,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|		|	|index.hbs
 			|	|		|	
 			|	|
-			|	painel
+			|	dashboard
 			|		|controller
 			|		|	|controller_Forms_painel.js
 			|		|
@@ -82,7 +82,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|		|		|reset.css
 			|		|
 			|		|views
-			|			|painel	
+			|			|dashboard	
 			|				|data
 			|				|	|data.json
 			|				|modules

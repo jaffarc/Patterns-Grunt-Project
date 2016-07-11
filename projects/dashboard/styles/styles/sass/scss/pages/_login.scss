@@ -1,0 +1,111 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the login.
+// -----------------------------------------------------------------------------
+
+.login-page {
+	width: 600px;
+	padding: 8% 0 0;
+	margin: auto;
+	form.register-form {
+	  position: relative;
+	  z-index: 1;
+	  background: #FFFFFF;
+	  max-width: 600px;
+	  height: 399px;
+	  margin: 0 auto;
+	  padding: 45px;
+	  text-align: center;
+	  overflow: hidden;
+	  border-radius:4px;
+	  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	  	h1{
+			text-align: left;
+			font-size: 22px;
+			color: #565656;
+			letter-spacing: 4px;
+			padding: 0 0 21px 0;
+			font-weight: normal;
+			float: left;
+			width: 64%;
+			
+			margin: 12px auto;
+	  	}
+	  	a{
+			float: left;
+			margin: 5px;
+		}
+		input {
+		  	width: 100%;
+		  	padding: 20px 10px;
+		  	background: $white;
+		  	border: none;
+		  	font-size: 1em;
+		  	color: $black;
+		  	border-bottom: 1px dotted $black;
+		  	letter-spacing: 3px;
+			/*@include placeholder(lighten($black, 10%));
+			@include transition(background-color .5s ease-in-out);
+			    &:focus{
+			     background-color: darken($white, 10%);
+			    }*/
+			 outline: none;
+		}
+		button {
+			font-family: "Roboto", sans-serif;
+			text-transform: uppercase;
+			outline: 0;
+			background: #4CAF50;
+			width: 50%;
+			height: 62px;
+			border: 0;
+			padding: 15px;
+			color: #FFFFFF;
+			font-size: 14px;
+			-webkit-transition: all 0.3 ease;
+			transition: all 0.3 ease;
+			cursor: pointer;
+			bottom: 0;
+			position: absolute;
+	   		letter-spacing: 3px;
+			:first-child{
+				left: 0;
+			}
+			&:active{
+				background: $overButton
+			}
+			&:hover  {
+	  			background: $overButton
+			}
+			&:focus{
+				background: $overButton
+			}
+		}
+		.login{
+			left: 0;
+			text-align: left;
+			color:$black;
+			background-color:#e8e9ec;
+		}
+		.register{
+			right:0;
+			text-align: right;
+			background-color: #2d3b55;
+			&:hover{
+				color:#e8e9ec;
+			}
+		}
+		.message {
+			margin: 33px 0 0;
+		    color: #b3b3b3;
+		    font-size: 12px;
+		    text-transform: uppercase;
+		    a {
+			  	color: #333;
+			  	text-decoration: none;
+			    text-transform: uppercase;
+			    float: none;
+			}
+		}
+
+	}
+}
