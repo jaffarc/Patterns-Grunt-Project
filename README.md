@@ -15,7 +15,7 @@ We last years working in some companies, realizes the difficulty of having sever
 		|	|js/
 		|	|-index.html
 		|
-		|_Painel
+		|_dashboard
 			|css/
 			|js/
 			|-index.html
@@ -99,7 +99,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			|	|	|img/**.[png,jpg,gif]
 			|	|	|-index.html
 			|	|
-			|	|painel
+			|	|dashboard
 			|	|	|css/general-min-un.css
 			|	|	|js/general-min-un.js	
 			|	|	|img/**.[png,jpg,gif]
@@ -155,7 +155,7 @@ My idea was to create a grunt where no matter what project you are working have 
 	        }
 	    ],
 	  	
-	    "Painel":[
+	    "dashboard":[
 	   		{
 	            "module":{
 	            	"Forms": true
@@ -169,7 +169,7 @@ My idea was to create a grunt where no matter what project you are working have 
 			    },
 			    "default":{
 				    "debug":false,
-				    "build" : "./public/Painel/"
+				    "build" : "./public/dashboard/"
 				}
 	        }
 	    ]
@@ -185,6 +185,8 @@ My idea was to create a grunt where no matter what project you are working have 
 
 1. Install [Git](http://git-scm.com/download/)
 2. Install [NodeJS](http://nodejs.org/download/)
+3. Install [Ruby-Sass] (http://sass-lang.com/install)
+
 
 ## Setup
 1. Open your terminal and clone the project.
