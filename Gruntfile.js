@@ -6,7 +6,6 @@ module.exports = function (grunt) {
     var arg2, allFunc, taskRun, defaults = {}, d = new Date(),
         pkg     = require("./package.json"),
         Config = require('./configProject/taskGrunt').Config,
-        express = require('express'),
         path    = require('path'),
         fs      = require('fs'),
         fsx = require('fs-extra'),
