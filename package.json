@@ -37,7 +37,7 @@
     "grunt-contrib-sass": "^2.0.0",
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "^1.1.0",
-    "handlebars": "^4.7.7",
+    "handlebars": "^4.7.8",
     "jshint-table-reporter": "^0.1.0",
     "karma": "^6.4.2",
     "karma-coverage": "^2.2.1",
